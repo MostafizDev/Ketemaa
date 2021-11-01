@@ -1,21 +1,21 @@
 import 'package:get/get.dart';
 
-class AppDimenson {
-  static double b1 = 14;
+class AppDimension {
+  static double b1 = 12;
 
-  static double b2 = 16;
+  static double b2 = 14;
 
-  static double h1 = 18;
+  static double h1 = 16;
 
-  static double h2 = 20;
+  static double h2 = 18;
 
-  static double h3 = 22;
+  static double h3 = 20;
 
-  static double h4 = 24;
+  static double h4 = 22;
 
-  static double h5 = 26;
+  static double h5 = 24;
 
-  static double h6 = 28;
+  static double h6 = 26;
 
   static double padding = 16;
 

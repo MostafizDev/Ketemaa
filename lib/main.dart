@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'app_routes/app_routes.dart';
+import 'core/language/language.dart';
 import 'core/utilities/app_theme/app_theme.dart';
 
 void main() {
@@ -13,9 +14,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: AppTheme.themeData(),
       getPages: AppRoutes.AppRoutesList(),
-      initialRoute: AppRoutes.INITAL_SCREEN,
+      initialRoute: AppRoutes.MAIN_AUTH,
+      translations: Language(),
+      locale: Locale('en', 'US'),
     );
   }
 }

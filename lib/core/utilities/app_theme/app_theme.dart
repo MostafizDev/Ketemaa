@@ -13,35 +13,35 @@ class AppTheme {
       textTheme: TextTheme(
         bodyText1: GoogleFonts.ubuntu(
             textStyle: TextStyle(
-                fontSize: AppDimenson.b1,
+                fontSize: AppDimension.b1,
                 color: AppColors.textColor,
                 letterSpacing: 0.3,
                 wordSpacing: 0.5)),
         bodyText2: GoogleFonts.ubuntu(
             textStyle: TextStyle(
-                fontSize: AppDimenson.b2,
+                fontSize: AppDimension.b2,
                 color: AppColors.textColor,
                 letterSpacing: 0.3,
                 wordSpacing: 0.5)),
         headline1: GoogleFonts.ubuntu(
             textStyle: TextStyle(
-                fontSize: AppDimenson.h1,
+                fontSize: AppDimension.h1,
                 color: AppColors.textColor,
                 letterSpacing: 0.3,
                 wordSpacing: 0.5)),
         headline2: GoogleFonts.ubuntu(
-            textStyle:
-                TextStyle(fontSize: AppDimenson.h2, color: AppColors.textColor),
+            textStyle: TextStyle(
+                fontSize: AppDimension.h2, color: AppColors.textColor),
             letterSpacing: 0.3,
             wordSpacing: 0.5),
         headline3: GoogleFonts.ubuntu(
-            textStyle:
-                TextStyle(fontSize: AppDimenson.h3, color: AppColors.textColor),
+            textStyle: TextStyle(
+                fontSize: AppDimension.h3, color: AppColors.textColor),
             letterSpacing: 0.3,
             wordSpacing: 0.5),
         headline4: GoogleFonts.ubuntu(
-            textStyle:
-                TextStyle(fontSize: AppDimenson.h4, color: AppColors.textColor),
+            textStyle: TextStyle(
+                fontSize: AppDimension.h4, color: AppColors.textColor),
             letterSpacing: 0.3,
             wordSpacing: 0.5),
       ),
