@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
-import 'package:ketemaa/core/utilities/app_assets/app_assets.dart';
+import 'package:ketemaa/app_routes/app_routes.dart';
+import 'package:ketemaa/core/language/language_string.dart';
 import 'package:ketemaa/core/utilities/app_colors/app_colors.dart';
+import 'package:ketemaa/core/utilities/app_dimension/app_dimenson.dart';
 
 class SocialLoginButton extends StatefulWidget {
   String image;
@@ -53,7 +55,7 @@ class _SocialLoginButtonState extends State<SocialLoginButton> {
     );
 
     // Custom Toast Position
-   /* fToast.showToast(
+    /* fToast.showToast(
         child: toast,
         toastDuration: Duration(seconds: 2),
         positionedToastBuilder: (context, child) {
@@ -69,7 +71,10 @@ class _SocialLoginButtonState extends State<SocialLoginButton> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        _showToast();
+        widget.text == 'Continue with Email'
+            ? Get.toNamed(AppRoutes.SIGN_IN_EMAIL)
+            : _showToast();
+        print('Button Pressed: ${LanguageString.EMAIL_LOGIN}');
       },
       child: Container(
         margin: EdgeInsets.only(left: 10.0, right: 10.0),
@@ -82,7 +87,7 @@ class _SocialLoginButtonState extends State<SocialLoginButton> {
         child: Row(
           children: [
             Padding(
-              padding: EdgeInsets.all(12.0),
+              padding: EdgeInsets.all(AppDimension.b1),
               child: Image.asset(widget.image),
             ),
             Text(

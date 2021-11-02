@@ -11,6 +11,8 @@ class AppSpaces {
   static Padding spaces_height_30 = Padding(padding: EdgeInsets.only(top: 30));
   static Padding spaces_height_35 = Padding(padding: EdgeInsets.only(top: 35));
   static Padding spaces_height_40 = Padding(padding: EdgeInsets.only(top: 40));
+  static Padding spaces_height_100 = Padding(padding: EdgeInsets.only(top: 100));
+  static Padding spaces_height_160 = Padding(padding: EdgeInsets.only(top: 160));
 
   static Padding spaces_width_5 = Padding(padding: EdgeInsets.only(left: 5));
   static Padding spaces_width_10 = Padding(padding: EdgeInsets.only(left: 10));

@@ -6,6 +6,7 @@ import 'package:ketemaa/core/utilities/app_dimension/app_dimenson.dart';
 class AppTheme {
   static ThemeData themeData() {
     return ThemeData(
+      primarySwatch: Colors.red,
       backgroundColor: AppColors.backgroundColor,
       errorColor: AppColors.error_color,
       dividerColor: AppColors.borderColor,

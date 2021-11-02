@@ -8,14 +8,14 @@ import 'package:ketemaa/core/utilities/app_spaces/app_spaces.dart';
 import 'package:ketemaa/core/utilities/common_widgets/password_input_field.dart';
 import 'package:ketemaa/core/utilities/common_widgets/text_input_field.dart';
 
-class SignUp extends StatefulWidget {
-  const SignUp({Key? key}) : super(key: key);
+class SignInWithEmail extends StatefulWidget {
+  const SignInWithEmail({Key? key}) : super(key: key);
 
   @override
-  _SignUpState createState() => _SignUpState();
+  _SignInWithEmailState createState() => _SignInWithEmailState();
 }
 
-class _SignUpState extends State<SignUp> {
+class _SignInWithEmailState extends State<SignInWithEmail> {
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
@@ -43,17 +43,10 @@ class _SignUpState extends State<SignUp> {
             children: [
               AppSpaces.spaces_height_100,
               Text(
-                LanguageString.SIGN_UP_TO.tr + ' ' + LanguageString.APPNAME.tr,
+                LanguageString.LOGIN_IN_WITH.tr,
                 style: Get.textTheme.headline4!.copyWith(color: Colors.black),
               ),
               AppSpaces.spaces_height_30,
-              TextInputField(
-                labelText: LanguageString.NAME.tr,
-                height: .09,
-                textType: TextInputType.text,
-                controller: nameController,
-              ),
-              AppSpaces.spaces_height_5,
               TextInputField(
                 labelText: LanguageString.EMAIL.tr,
                 height: .09,
@@ -80,7 +73,8 @@ class _SignUpState extends State<SignUp> {
                 child: TextButton(
                   onPressed: () {},
                   child: Text(
-                    LanguageString.SIGN_UP.tr.toUpperCase(),
+                    LanguageString.lOG_IN.tr.toUpperCase(),
+                    style: Get.textTheme.button,
                   ),
                 ),
               ),

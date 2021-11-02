@@ -14,10 +14,12 @@ class Language extends Translations {
           'Terms_Condition': 'Terms and Conditions',
           'Privacy_Policy': 'Privacy Policy',
           'Sign_Up_To': 'Sign up to',
-          'Log_In_To': 'Log in to',
+          'Log_In_With_Email': 'Log in with email',
           'Name': 'Name',
           'Email': 'Email',
           'Password': 'Password',
+          'Sign_Up': 'Sign Up',
+          'Log_In': 'Log In',
         },
         'bd_BD': {},
       };

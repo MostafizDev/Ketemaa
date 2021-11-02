@@ -7,6 +7,7 @@ import 'package:ketemaa/app_routes/app_routes.dart';
 import 'package:ketemaa/core/utilities/app_assets/app_assets.dart';
 import 'package:ketemaa/core/utilities/app_colors/app_colors.dart';
 import 'package:ketemaa/core/utilities/app_spaces/app_spaces.dart';
+import 'package:ketemaa/core/utilities/common_widgets/image_slider.dart';
 import 'package:ketemaa/core/utilities/common_widgets/social_login_button.dart';
 
 class MainAuth extends StatefulWidget {
@@ -48,39 +49,12 @@ class _MainAuthState extends State<MainAuth> {
               ],
             ),
             AppSpaces.spaces_height_15,
-            Center(
-              child: Container(
-                  height: size.height * 0.3,
-                  width: size.width * .8,
-                  child: Carousel(
-                    indicatorBarColor: Colors.transparent,
-                    autoScrollDuration: Duration(seconds: 2),
-                    animationPageDuration: Duration(milliseconds: 500),
-                    activateIndicatorColor: Colors.black,
-                    animationPageCurve: Curves.bounceInOut,
-                    indicatorBarHeight: 0,
-                    indicatorHeight: 0,
-                    indicatorWidth: 0,
-                    unActivatedIndicatorColor: Colors.grey,
-                    //stopAtEnd: true,
-                    autoScroll: true,
-                    isCircle: true,
-                    // widgets
-                    items: [
-                      Image.asset(
-                        AppAsset.main_auth_image_1,
-                        fit: BoxFit.fill,
-                      ),
-                      Image.asset(
-                        AppAsset.main_auth_image_2,
-                        fit: BoxFit.fill,
-                      ),
-                      Image.asset(
-                        AppAsset.main_auth_image_3,
-                        fit: BoxFit.fill,
-                      ),
-                    ],
-                  )),
+            ImageSliderSection(
+              images: [
+                AppAsset.main_auth_image_1,
+                AppAsset.main_auth_image_2,
+                AppAsset.main_auth_image_3,
+              ],
             ),
             AppSpaces.spaces_height_25,
             SocialLoginButton(
@@ -89,9 +63,11 @@ class _MainAuthState extends State<MainAuth> {
             SocialLoginButton(
                 image: AppAsset.facebook_icon, text: 'Facebook_Login'.tr),
             AppSpaces.spaces_height_15,
-            SocialLoginButton(image: AppAsset.apple_icon, text: 'Apple_Login'.tr),
+            SocialLoginButton(
+                image: AppAsset.apple_icon, text: 'Apple_Login'.tr),
             AppSpaces.spaces_height_15,
-            SocialLoginButton(image: AppAsset.email_icon, text: 'Email_Login'.tr),
+            SocialLoginButton(
+                image: AppAsset.email_icon, text: 'Email_Login'.tr),
             AppSpaces.spaces_height_30,
             Center(
               child: InkWell(
@@ -101,17 +77,16 @@ class _MainAuthState extends State<MainAuth> {
                 child: Text(
                   'Create_Account'.tr,
                   style: TextStyle(
-                    color: AppColors.primaryColor,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 15
-                  ),
+                      color: AppColors.primaryColor,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15),
                 ),
               ),
             ),
             AppSpaces.spaces_height_35,
             Center(
               child: Padding(
-                padding: EdgeInsets.only(left: 10,right: 10),
+                padding: EdgeInsets.only(left: 10, right: 10),
                 child: RichText(
                   text: TextSpan(
                     style: TextStyle(
