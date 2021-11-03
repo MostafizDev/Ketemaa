@@ -1,5 +1,7 @@
 import 'package:bottom_bar_page_transition/bottom_bar_page_transition.dart';
 import 'package:flutter/material.dart';
+import 'package:ketemaa/features/controller_page/presentation/widgets/get_body.dart';
+import 'package:ketemaa/features/controller_page/presentation/widgets/get_bottom_bar.dart';
 
 class ControllerPage extends StatefulWidget {
   const ControllerPage({Key? key}) : super(key: key);
@@ -9,8 +11,9 @@ class ControllerPage extends StatefulWidget {
 }
 
 class _ControllerPageState extends State<ControllerPage> {
-  static const int totalPage = 5;
-  static const List<String> names = [
+  int totalPage = 5;
+  int _currentPage = 0;
+  List<String> names = [
     'Home',
     'Favourite',
     'Place a Add',
@@ -26,36 +29,31 @@ class _ControllerPageState extends State<ControllerPage> {
     Icons.person,
   ];
 
-  static const List<Color> colors = [
-    Colors.blueGrey,
-    Colors.teal,
-    Colors.blue,
-    Colors.brown
-  ];
-
-  int _currentPage = 0;
-
   @override
   void initState() {
     super.initState();
   }
 
+  Duration duration = Duration(milliseconds: 300);
+  Curve curve = Curves.ease;
+  TransitionType transitionType = TransitionType.slide;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: BottomBarPageTransition(
-        builder: (_, index) => _getBody(index),
+        builder: (_, index) => getBody(index),
         currentIndex: _currentPage,
         totalLength: totalPage,
         transitionType: transitionType,
         transitionDuration: duration,
         transitionCurve: curve,
       ),
-      bottomNavigationBar: _getBottomBar(),
+      bottomNavigationBar: getBottomBar(),
     );
   }
 
-  Widget _getBottomBar() {
+  /*Widget _getBottomBar() {
     return BottomNavigationBar(
         selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
         selectedFontSize: 12,
@@ -65,8 +63,8 @@ class _ControllerPageState extends State<ControllerPage> {
           _currentPage = index;
           setState(() {});
         },
-        selectedItemColor: Colors.black,
-        unselectedItemColor: Colors.grey,
+        selectedItemColor: AppColors.black,
+        unselectedItemColor: AppColors.grey,
         type: BottomNavigationBarType.fixed,
         items: List.generate(
             totalPage,
@@ -75,15 +73,11 @@ class _ControllerPageState extends State<ControllerPage> {
                   label: names[index],
                 )));
   }
-
-  Duration duration = Duration(milliseconds: 300);
-  Curve curve = Curves.ease;
-  TransitionType transitionType = TransitionType.slide;
-
-  Widget _getBody(int index) {
+*/
+/*Widget _getBody(int index) {
     return CustomScrollView(
       slivers: <Widget>[
-        /*SliverAppBar(
+        */ /*SliverAppBar(
           title: Text(selectedTransactionType),
           backgroundColor: <Color>[
             Colors.blue,
@@ -91,7 +85,7 @@ class _ControllerPageState extends State<ControllerPage> {
             Colors.blueGrey,
             Colors.green
           ][index],
-        ),*/
+        ),*/ /*
         SliverFillRemaining(
           child: Container(
             //color: colors[index],
@@ -126,5 +120,5 @@ class _ControllerPageState extends State<ControllerPage> {
         )
       ],
     );
-  }
+  }*/
 }
