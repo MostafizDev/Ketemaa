@@ -44,8 +44,9 @@ dependencies:
   lint: ^1.5.3
   flutter_image_slider: ^0.0.2
   fluttertoast: ^8.0.8
-  firebase_crashlytics: ^2.2.4
+  #firebase_crashlytics: ^2.2.4
   email_validator: ^2.0.1
+  bottom_bar_page_transition: ^2.0.0
 
 dev_dependencies:
   flutter_test:
