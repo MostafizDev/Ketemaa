@@ -1,4 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
+
+String readRepositories = '''
+  query{
+  allCategoryKeyword
+} 
+''';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);

@@ -1,7 +1,7 @@
 import 'package:bottom_bar_page_transition/bottom_bar_page_transition.dart';
 import 'package:flutter/material.dart';
-import 'package:ketemaa/features/controller_page/presentation/widgets/get_body.dart';
-import 'package:ketemaa/features/controller_page/presentation/widgets/get_bottom_bar.dart';
+import 'package:ketemaa/features/controller_page/widgets/get_body.dart';
+import 'package:ketemaa/features/controller_page/widgets/get_bottom_bar.dart';
 
 class ControllerPage extends StatefulWidget {
   const ControllerPage({Key? key}) : super(key: key);
