@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
 String readRepositories = '''
-  query{
+  query  {
   allCategoryKeyword
 } 
 ''';
@@ -21,8 +21,15 @@ class _HomeState extends State<Home> {
       body: Container(
         /*child: GridView.builder(gridDelegate: gridDelegate, itemBuilder: itemBuilder)*/
         child: Center(
-          child: Text('Home'),
-        ),
+          child: Query(options: QueryOptions(document: gql(readRepositories),),
+            builder: (result, {fetchMore, refetch}) {
+
+            final categoryList = result.data?['allCategoryKeyword'];
+
+            print("categoryList: $categoryList");
+            return Text('Somthing');
+
+            }),),
       ),
     );
   }

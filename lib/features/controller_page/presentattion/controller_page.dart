@@ -1,7 +1,9 @@
 import 'package:bottom_bar_page_transition/bottom_bar_page_transition.dart';
 import 'package:flutter/material.dart';
+import 'package:ketemaa/core/utilities/app_colors/app_colors.dart';
 import 'package:ketemaa/features/controller_page/widgets/get_body.dart';
 import 'package:ketemaa/features/controller_page/widgets/get_bottom_bar.dart';
+import 'package:ketemaa/features/home/home.dart';
 
 class ControllerPage extends StatefulWidget {
   const ControllerPage({Key? key}) : super(key: key);
@@ -53,72 +55,57 @@ class _ControllerPageState extends State<ControllerPage> {
     );
   }
 
-  /*Widget _getBottomBar() {
-    return BottomNavigationBar(
-        selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
-        selectedFontSize: 12,
-        unselectedFontSize: 12,
-        currentIndex: _currentPage,
-        onTap: (index) {
-          _currentPage = index;
-          setState(() {});
-        },
-        selectedItemColor: AppColors.black,
-        unselectedItemColor: AppColors.grey,
-        type: BottomNavigationBarType.fixed,
-        items: List.generate(
-            totalPage,
-            (index) => BottomNavigationBarItem(
-                  icon: Icon(icons[index]),
-                  label: names[index],
-                )));
+  getBody(int index) {
+    if (index == 0) {
+      return Home();
+    } else if (index == 1) {
+      return Container(
+        child: Center(
+          child: Text(names[index]),
+        ),
+      );
+    } else if (index == 2) {
+      return Container(
+        child: Center(
+          child: Text(names[index]),
+        ),
+      );
+    } else if (index == 3) {
+      return Container(
+        child: Center(
+          child: Text(names[index]),
+        ),
+      );
+    } else {
+      return Container(
+        child: Center(
+          child: Text(names[index]),
+        ),
+      );
+    }
   }
-*/
-/*Widget _getBody(int index) {
-    return CustomScrollView(
-      slivers: <Widget>[
-        */ /*SliverAppBar(
-          title: Text(selectedTransactionType),
-          backgroundColor: <Color>[
-            Colors.blue,
-            Colors.indigo,
-            Colors.blueGrey,
-            Colors.green
-          ][index],
-        ),*/ /*
-        SliverFillRemaining(
-          child: Container(
-            //color: colors[index],
-            padding: EdgeInsets.all(10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                if (index == 0)
-                  Container(
-                    child: Text(names[index]),
-                  ),
-                if (index == 1)
-                  Container(
-                    child: Text(names[index]),
-                  ),
-                if (index == 2)
-                  Container(
-                    child: Text(names[index]),
-                  ),
-                if (index == 3)
-                  Container(
-                    child: Text(names[index]),
-                  ),
-                if (index == 4)
-                  Container(
-                    child: Text(names[index]),
-                  ),
-              ],
-            ),
-          ),
-        )
-      ],
+
+  getBottomBar() {
+    return BottomNavigationBar(
+      selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
+      selectedFontSize: 12,
+      unselectedFontSize: 12,
+      currentIndex: _currentPage,
+      onTap: (index) {
+        print(_currentPage);
+        _currentPage = index;
+        setState(() {});
+      },
+      selectedItemColor: AppColors.black,
+      unselectedItemColor: AppColors.grey,
+      type: BottomNavigationBarType.fixed,
+      items: List.generate(
+        totalPage,
+        (index) => BottomNavigationBarItem(
+          icon: Icon(icons[index]),
+          label: names[index],
+        ),
+      ),
     );
-  }*/
+  }
 }

@@ -1,5 +1,7 @@
+/*
 import 'package:flutter/material.dart';
 import 'package:ketemaa/features/home/home.dart';
+
 
 
 List<String> names = [
@@ -10,7 +12,8 @@ List<String> names = [
   'Profile',
 ];
 
-getBody(int index) {
+
+getBody(int index, var names) {
   if (index == 0) {
     return Home();
   } else if (index == 1) {
@@ -38,4 +41,4 @@ getBody(int index) {
       ),
     );
   }
-}
+}*/

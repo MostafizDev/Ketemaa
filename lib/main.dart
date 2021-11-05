@@ -2,44 +2,32 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'app_routes/app_routes.dart';
+import 'core/graphQLconfig/graphql_config.dart';
 import 'core/language/language.dart';
 import 'core/utilities/app_theme/app_theme.dart';
 
-void main() {
-  final HttpLink httpLink = HttpLink(
-    'https://65.1.64.139/graphql/',
-  );
+GraphQLConfiguration graphQLConfiguration = GraphQLConfiguration();
 
-  ValueNotifier<GraphQLClient> client = ValueNotifier(
-    GraphQLClient(
-      link: httpLink,
-      cache: GraphQLCache(
-        store: InMemoryStore(),
+void main() => runApp(
+      GraphQLProvider(
+        client: graphQLConfiguration.client,
+        child: const CacheProvider(child: MyApp()),
       ),
-    ),
-  );
-
-  var app = GraphQLProvider(
-    child: MyApp(),
-    client: client,
-  );
-  runApp(app);
-}
+    );
+/*void main() => runApp( MyApp());*/
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return GraphQLProvider(
-      child: GetMaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: AppTheme.themeData(),
-        getPages: AppRoutes.AppRoutesList(),
-        initialRoute: AppRoutes.CONTROLLER_PAGE,
-        translations: Language(),
-        locale: Locale('en', 'US'),
-      ),
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme.themeData(),
+      getPages: AppRoutes.AppRoutesList(),
+      initialRoute: AppRoutes.CONTROLLER_PAGE,
+      translations: Language(),
+      locale: const Locale('en', 'US'),
     );
   }
 }
