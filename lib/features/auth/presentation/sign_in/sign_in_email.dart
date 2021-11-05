@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_utils/src/extensions/internacionalization.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:ketemaa/core/language/language_string.dart';
 import 'package:ketemaa/core/utilities/app_colors/app_colors.dart';
 import 'package:ketemaa/core/utilities/app_dimension/app_dimenson.dart';
 import 'package:ketemaa/core/utilities/app_spaces/app_spaces.dart';
 import 'package:ketemaa/core/utilities/common_widgets/password_input_field.dart';
 import 'package:ketemaa/core/utilities/common_widgets/text_input_field.dart';
+
+import 'graphql/login_user.dart';
 
 class SignInWithEmail extends StatefulWidget {
   const SignInWithEmail({Key? key}) : super(key: key);
@@ -16,7 +19,20 @@ class SignInWithEmail extends StatefulWidget {
 }
 
 class _SignInWithEmailState extends State<SignInWithEmail> {
-  TextEditingController nameController = TextEditingController();
+  late DatabaseUtils utils;
+
+  /*String loginUser = """
+    mutation loginUser (\$email: String!, \$password: String!){
+        loginUser{
+    success
+    access
+    refresh
+    user{
+      username
+    }
+  }
+    }
+""";*/
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
@@ -67,16 +83,58 @@ class _SignInWithEmailState extends State<SignInWithEmail> {
                 width: Get.width,
                 decoration: BoxDecoration(
                   color: AppColors.textColor, // set border width
-                  borderRadius: BorderRadius.all(
+                  borderRadius: const BorderRadius.all(
                       Radius.circular(10.0)), // set rounded corner radius
                 ),
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    if (emailController.text.isNotEmpty &&
+                        passwordController.text.isNotEmpty) {
+                      /*utils = DatabaseUtils(
+                        emailInput: emailController.text.toString(),
+                        passwordInput: passwordController.text.toString(),
+                      );*/
+                      utils.LoginUser(emailController.text.toString(),
+                          passwordController.text.toString());
+                    }
+                  },
                   child: Text(
                     LanguageString.lOG_IN.tr.toUpperCase(),
                     style: Get.textTheme.button,
                   ),
                 ),
+                /*child: Mutation(
+                  options: MutationOptions(
+                    document: gql(loginUser),
+                    variables: {
+                      'email': emailController.text.toString(),
+                      'password': passwordController.text.toString()
+                    },
+                    update: (cache, result) => cache,
+                    onCompleted: (dynamic resultData) {
+                      print('resultData: $resultData');
+                    },
+                  ),
+                  builder: (
+                    RunMutation runMutation,
+                    result,
+                  ) {
+                    return TextButton(
+                      onPressed: () {
+                        runMutation({
+                          */ /*'email': emailController.text.toString(),
+                          'password': passwordController.text.toString()*/ /*
+                        });
+                        print('emailController: ${emailController.text.toString()}');
+                        print('passwordController: ${passwordController.text.toString()}');
+                      },
+                      child: Text(
+                        LanguageString.lOG_IN.tr.toUpperCase(),
+                        style: Get.textTheme.button,
+                      ),
+                    );
+                  },
+                ),*/
               ),
             ],
           ),

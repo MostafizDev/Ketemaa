@@ -20,15 +20,15 @@ class _ImageSliderSectionState extends State<ImageSliderSection> {
         fit: BoxFit.fill,
       );
       _sliderImages.add(_imageSlider);
-      print('Image View: ${widget.images![i]}');
+      //print('Image View: ${widget.images![i]}');
     }
     return _sliderImages;
   }
 
   @override
   Widget build(BuildContext context) {
-    print(
-        'Image Widget List ${_imageWidget()}\n List Length : ${widget.images!.length}');
+    /*print(
+        'Image Widget List ${_imageWidget()}\n List Length : ${widget.images!.length}');*/
     return Center(
       child: Container(
         height: AppSizes.height3,
