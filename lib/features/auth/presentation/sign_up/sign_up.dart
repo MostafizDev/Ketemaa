@@ -43,26 +43,26 @@ class _SignUpState extends State<SignUp> {
             children: [
               AppSpaces.spaces_height_100,
               Text(
-                LanguageString.SIGN_UP_TO.tr + ' ' + LanguageString.APPNAME.tr,
+                AppLanguageString.SIGN_UP_TO.tr + ' ' + AppLanguageString.APPNAME.tr,
                 style: Get.textTheme.headline4!.copyWith(color: Colors.black),
               ),
               AppSpaces.spaces_height_30,
               TextInputField(
-                labelText: LanguageString.NAME.tr,
+                labelText: AppLanguageString.NAME.tr,
                 height: .09,
                 textType: TextInputType.text,
                 controller: nameController,
               ),
               AppSpaces.spaces_height_5,
               TextInputField(
-                labelText: LanguageString.EMAIL.tr,
+                labelText: AppLanguageString.EMAIL.tr,
                 height: .09,
                 textType: TextInputType.emailAddress,
                 controller: emailController,
               ),
               AppSpaces.spaces_height_5,
               PasswordInputField(
-                  labelText: LanguageString.PASSWORD.tr,
+                  labelText: AppLanguageString.PASSWORD.tr,
                   height: .09,
                   textType: TextInputType.text,
                   controller: passwordController),
@@ -80,7 +80,7 @@ class _SignUpState extends State<SignUp> {
                 child: TextButton(
                   onPressed: () {},
                   child: Text(
-                    LanguageString.SIGN_UP.tr.toUpperCase(),
+                    AppLanguageString.SIGN_UP.tr.toUpperCase(),
                   ),
                 ),
               ),

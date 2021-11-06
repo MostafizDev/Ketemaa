@@ -74,7 +74,7 @@ class _SocialLoginButtonState extends State<SocialLoginButton> {
         widget.text == 'Continue with Email'
             ? Get.toNamed(AppRoutes.SIGN_IN_EMAIL)
             : _showToast();
-        print('Button Pressed: ${LanguageString.EMAIL_LOGIN}');
+        print('Button Pressed: ${AppLanguageString.EMAIL_LOGIN}');
       },
       child: Container(
         margin: EdgeInsets.only(left: 10.0, right: 10.0),

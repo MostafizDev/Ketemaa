@@ -37,4 +37,13 @@ class AppDimension {
   static double cart_card_height = 131;
 
   static double buy_now_button_height = 100;
+
+  static double loading_widget_size = 60;
+  static double radious = 10;
+
+  static double spreadRadius = 10;
+
+  static double blurRadius = 05;
+
+  static double padding_1 = 8.0 ;
 }

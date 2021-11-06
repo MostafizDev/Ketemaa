@@ -4,20 +4,21 @@ import 'package:flutter_image_slider/carousel.dart';
 import 'package:get/get.dart';
 import 'package:get/get_utils/src/extensions/internacionalization.dart';
 import 'package:ketemaa/app_routes/app_routes.dart';
+import 'package:ketemaa/core/language/language_string.dart';
 import 'package:ketemaa/core/utilities/app_assets/app_assets.dart';
 import 'package:ketemaa/core/utilities/app_colors/app_colors.dart';
 import 'package:ketemaa/core/utilities/app_spaces/app_spaces.dart';
 import 'package:ketemaa/core/utilities/common_widgets/image_slider.dart';
 import 'package:ketemaa/core/utilities/common_widgets/social_login_button.dart';
 
-class MainAuth extends StatefulWidget {
-  const MainAuth({Key? key}) : super(key: key);
+class AuthInitialPage extends StatefulWidget {
+  const AuthInitialPage({Key? key}) : super(key: key);
 
   @override
-  _MainAuthState createState() => _MainAuthState();
+  _AuthInitialPageState createState() => _AuthInitialPageState();
 }
 
-class _MainAuthState extends State<MainAuth> {
+class _AuthInitialPageState extends State<AuthInitialPage> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -58,16 +59,16 @@ class _MainAuthState extends State<MainAuth> {
             ),
             AppSpaces.spaces_height_25,
             SocialLoginButton(
-                image: AppAsset.google_icon, text: 'Google_Login'.tr),
+                image: AppAsset.google_icon, text: AppLanguageString.GOOGLE_LOGIN.tr),
             AppSpaces.spaces_height_15,
             SocialLoginButton(
-                image: AppAsset.facebook_icon, text: 'Facebook_Login'.tr),
+                image: AppAsset.facebook_icon, text: AppLanguageString.FACEBOOK_LOGIN.tr),
             AppSpaces.spaces_height_15,
             SocialLoginButton(
-                image: AppAsset.apple_icon, text: 'Apple_Login'.tr),
+                image: AppAsset.apple_icon, text: AppLanguageString.APPLE_LOGIN.tr),
             AppSpaces.spaces_height_15,
             SocialLoginButton(
-                image: AppAsset.email_icon, text: 'Email_Login'.tr),
+                image: AppAsset.email_icon, text: AppLanguageString.EMAIL_LOGIN.tr),
             AppSpaces.spaces_height_30,
             Center(
               child: InkWell(
@@ -75,7 +76,7 @@ class _MainAuthState extends State<MainAuth> {
                   Get.toNamed(AppRoutes.SIGN_UP);
                 },
                 child: Text(
-                  'Create_Account'.tr,
+                  AppLanguageString.CREATE_ACCOUNT.tr,
                   style: TextStyle(
                       color: AppColors.primaryColor,
                       fontWeight: FontWeight.bold,
@@ -86,26 +87,26 @@ class _MainAuthState extends State<MainAuth> {
             AppSpaces.spaces_height_35,
             Center(
               child: Padding(
-                padding: EdgeInsets.only(left: 10, right: 10),
+                padding: const EdgeInsets.only(left: 10, right: 10),
                 child: RichText(
                   text: TextSpan(
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.black,
                       fontSize: 13,
                     ),
                     children: <TextSpan>[
                       TextSpan(
-                          text: 'Accept_TnC'.tr,
+                          text: AppLanguageString.ACCEPT_TnC.tr,
                           style: TextStyle(color: AppColors.black)),
                       TextSpan(
-                          text: 'Terms_Condition'.tr,
+                          text: AppLanguageString.TERMS_CONDITION.tr,
                           style: TextStyle(
                             color: AppColors.primaryColor,
                             decoration: TextDecoration.underline,
                           )),
-                      TextSpan(text: ' and '),
+                      TextSpan(text: ' ${AppLanguageString.AND.tr} '),
                       TextSpan(
-                          text: 'Privacy_Policy'.tr,
+                          text: AppLanguageString.TERMS_CONDITION.tr,
                           style: TextStyle(
                             color: AppColors.primaryColor,
                             decoration: TextDecoration.underline,

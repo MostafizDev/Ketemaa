@@ -1,11 +1,14 @@
 import 'package:get/get.dart';
+import 'package:ketemaa/core/language/language_string.dart';
+
+enum LanguageType { ENG, BAN, ARB, LI }
 
 class Language extends Translations {
   @override
   Map<String, Map<String, String>> get keys => {
         'en_US': {
           'App_Name': 'Ketemaa',
-          'Google_Login': 'Continue with Google',
+          AppLanguageString.GOOGLE_LOGIN: 'Continue with Google',
           'Facebook_Login': 'Continue with Facebook',
           'Apple_Login': 'Continue with Apple',
           'Email_Login': 'Continue with Email',
@@ -20,6 +23,7 @@ class Language extends Translations {
           'Password': 'Password',
           'Sign_Up': 'Sign Up',
           'Log_In': 'Log In',
+          'and': "and"
         },
         'bd_BD': {},
       };

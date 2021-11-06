@@ -1,11 +1,17 @@
 import 'package:dartz/dartz.dart';
-import 'package:http/http.dart' as http;
+import 'package:flutter/cupertino.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:ketemaa/core/error/failures.dart';
 
-abstract class AuthRepository{
- Future<Either<http.Response , Failure >> signIn() ;
- Future<Either<http.Response , Failure >> signUp() ;
- Future<Either<http.Response , Failure >> passwordUpdate(String password) ;
- Future<Either<http.Response , Failure >> emailVerification(String email) ;
- Future<Either<http.Response , Failure >> phoneVerification(String num) ;
+abstract class AuthRepository {
+  Future<Either<QueryResult, Failure>> signIn(
+      {@required String email, @required String password});
+
+  Future<Either<QueryResult, Failure>> signUp();
+
+  Future<Either<QueryResult, Failure>> passwordUpdate(String password);
+
+  Future<Either<QueryResult, Failure>> emailVerification(String email);
+
+  Future<Either<QueryResult, Failure>> phoneVerification(String num);
 }

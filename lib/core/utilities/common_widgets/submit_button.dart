@@ -28,7 +28,7 @@ class _SubmitButtonState extends State<SubmitButton> {
       child: TextButton(
         onPressed: () {},
         child: Text(
-          LanguageString.SIGN_UP.tr.toUpperCase(),
+          AppLanguageString.SIGN_UP.tr.toUpperCase(),
           style: Get.textTheme.bodyText1!.copyWith(color: AppColors.textColor),
         ),
       ),

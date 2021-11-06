@@ -6,11 +6,11 @@ import 'core/graphQLconfig/graphql_config.dart';
 import 'core/language/language.dart';
 import 'core/utilities/app_theme/app_theme.dart';
 
-GraphQLConfiguration graphQLConfiguration = GraphQLConfiguration();
+
 
 void main() => runApp(
       GraphQLProvider(
-        client: graphQLConfiguration.client,
+        client: AppGraphQLConfiguration.client,
         child: const CacheProvider(child: MyApp()),
       ),
     );
