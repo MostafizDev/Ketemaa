@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_utils/src/extensions/internacionalization.dart';
+import 'package:ketemaa/app_routes/app_routes.dart';
 import 'package:ketemaa/core/language/language_string.dart';
 import 'package:ketemaa/core/utilities/app_colors/app_colors.dart';
 import 'package:ketemaa/core/utilities/app_dimension/app_dimenson.dart';
@@ -8,11 +9,9 @@ import 'package:ketemaa/core/utilities/app_spaces/app_spaces.dart';
 import 'package:ketemaa/core/utilities/common_widgets/password_input_field.dart';
 import 'package:ketemaa/core/utilities/common_widgets/text_input_field.dart';
 import '_controller/sign_in_controller.dart';
+
 class SignInWithEmail extends StatelessWidget {
-  SignInWithEmail({Key? key}) : super(key: key);
-
- // late DatabaseUtils utils;
-
+  const SignInWithEmail({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -68,9 +67,13 @@ class SignInWithEmail extends StatelessWidget {
                 ),
                 child: TextButton(
                   onPressed: () {
+                    //Get.toNamed(AppRoutes.CONTROLLER_PAGE);
 
-
-
+                    SigninController.to.signIn(
+                      email: SigninController.to.emailTextFiledController.text
+                          .toString(),
+                      password: SigninController.to.passwordTextFiledController
+                          .text.toString(),);
                   },
                   child: Text(
                     AppLanguageString.lOG_IN.tr.toUpperCase(),

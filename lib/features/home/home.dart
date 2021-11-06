@@ -21,15 +21,16 @@ class _HomeState extends State<Home> {
       body: Container(
         /*child: GridView.builder(gridDelegate: gridDelegate, itemBuilder: itemBuilder)*/
         child: Center(
-          child: Query(options: QueryOptions(document: gql(readRepositories),),
-            builder: (result, {fetchMore, refetch}) {
-
-            final categoryList = result.data?['allCategoryKeyword'];
-
-            print("categoryList: $categoryList");
-            return Text('Somthing');
-
-            }),),
+          child: Query(
+              options: QueryOptions(
+                document: gql(readRepositories),
+              ),
+              builder: (result, {fetchMore, refetch}) {
+                final categoryList = result.data?['allCategoryKeyword'];
+                //print("categoryList: $categoryList");
+                return Text('$categoryList');
+              }),
+        ),
       ),
     );
   }

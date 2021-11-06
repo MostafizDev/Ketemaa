@@ -20,7 +20,7 @@ class AppLoading extends StatelessWidget {
             ]),
         child: Padding(
           padding:  EdgeInsets.all(AppDimension.padding_1),
-          child: new LoadingIndicator(
+          child: const LoadingIndicator(
             indicatorType: Indicator.lineSpinFadeLoader,
             strokeWidth: 0.1,
           ),

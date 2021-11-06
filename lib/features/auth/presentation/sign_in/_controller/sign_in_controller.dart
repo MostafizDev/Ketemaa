@@ -30,8 +30,9 @@ class SigninController extends GetxController {
 
   signIn({@required String? email, @required String? password}) async {
     if (_signInValidation()) {
-      Either<QueryResult, Failure> _response =
-          await _authRepository.signIn(email: email!, password: password!);
+      Either<QueryResult, Failure> _response = await _authRepository.signIn(
+          email: emailTextFiledController.text.toString(),
+          password: passwordTextFiledController.text.toString());
 
       _response.fold((response) {}, (error) {
         AppSnackBar.showErrorMessage();

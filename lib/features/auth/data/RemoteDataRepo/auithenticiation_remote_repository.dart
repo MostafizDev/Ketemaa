@@ -1,9 +1,11 @@
 import 'package:dartz/dartz.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:http/http.dart' as http;
 import 'package:ketemaa/core/error/failures.dart';
 import 'package:ketemaa/core/graphQLconfig/graphql_config.dart';
+import 'package:ketemaa/core/utilities/common_widgets/app_snack_bar.dart';
 import 'package:ketemaa/features/auth/data/Repository/authentication_repository.dart';
 
 class AuthenticationRemoteRepository extends AuthRepository {
@@ -30,19 +32,37 @@ class AuthenticationRemoteRepository extends AuthRepository {
   @override
   Future<Either<QueryResult, Failure>> signIn(
       {String? email, String? password}) async {
-    var query = '''
-    query allCategoryKeyword{
-      allCategoryKeyword
-     }
+    var userLogin = '''
+    mutation loginUser (\$email: String!, \$password: String!){
+        loginUser(email: "$email", password: "$password"){
+    success
+    access
+    refresh
+    user{
+      username
+    }
+  }
+    }
    ''';
 
-
+    /*var variables = {
+      "input": {"email": email, "password": password}
+    };
+*/
+ /*   Mutation(options: MutationOptions(document: gql(userLogin)),
+      builder: (RunMutation insert,  result) {
+        return Column();
+      },);*/
 
     QueryResult queryResult =
-        await AppGraphQLConfiguration.clientToQuery().query(
-      QueryOptions( document: gql(query)),
+    await AppGraphQLConfiguration.clientToQuery().mutate(MutationOptions(
+      document: gql(userLogin),
+    )
     );
-    printInfo(info: "${_TAG} gq response :: ${queryResult.data} ");
+    printInfo(info: "$_TAG gq response :: ${queryResult.data} ");
+    printInfo(info: "$_TAG gq response email :: $email ");
+    printInfo(info: "$_TAG gq response pass :: $password ");
+    //printInfo(info: "$_TAG gq response variables :: $variables ");
 
     // TODO: implement signIn
     throw UnimplementedError();
