@@ -1,43 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_utils/src/extensions/internacionalization.dart';
-import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:ketemaa/core/language/language_string.dart';
 import 'package:ketemaa/core/utilities/app_colors/app_colors.dart';
 import 'package:ketemaa/core/utilities/app_dimension/app_dimenson.dart';
 import 'package:ketemaa/core/utilities/app_spaces/app_spaces.dart';
 import 'package:ketemaa/core/utilities/common_widgets/password_input_field.dart';
 import 'package:ketemaa/core/utilities/common_widgets/text_input_field.dart';
+import '_controller/sign_in_controller.dart';
+class SignInWithEmail extends StatelessWidget {
+  SignInWithEmail({Key? key}) : super(key: key);
 
-import 'graphql/login_user.dart';
+ // late DatabaseUtils utils;
 
-class SignInWithEmail extends StatefulWidget {
-  const SignInWithEmail({Key? key}) : super(key: key);
-
-  @override
-  _SignInWithEmailState createState() => _SignInWithEmailState();
-}
-
-class _SignInWithEmailState extends State<SignInWithEmail> {
-  late DatabaseUtils utils;
-
-  /*String loginUser = """
-    mutation loginUser (\$email: String!, \$password: String!){
-        loginUser{
-    success
-    access
-    refresh
-    user{
-      username
-    }
-  }
-    }
-""";*/
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    Get.put(SigninController());
+
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -59,22 +39,22 @@ class _SignInWithEmailState extends State<SignInWithEmail> {
             children: [
               AppSpaces.spaces_height_100,
               Text(
-                LanguageString.LOGIN_IN_WITH.tr,
+                AppLanguageString.LOGIN_IN_WITH.tr,
                 style: Get.textTheme.headline4!.copyWith(color: Colors.black),
               ),
               AppSpaces.spaces_height_30,
               TextInputField(
-                labelText: LanguageString.EMAIL.tr,
+                labelText: AppLanguageString.EMAIL.tr,
                 height: .09,
                 textType: TextInputType.emailAddress,
-                controller: emailController,
+                controller: SigninController.to.emailTextFiledController,
               ),
               AppSpaces.spaces_height_5,
               PasswordInputField(
-                  labelText: LanguageString.PASSWORD.tr,
+                  labelText: AppLanguageString.PASSWORD.tr,
                   height: .09,
                   textType: TextInputType.text,
-                  controller: passwordController),
+                  controller: SigninController.to.passwordTextFiledController),
               AppSpaces.spaces_height_5,
               Container(
                 margin: EdgeInsets.all(AppDimension.b1),
@@ -88,54 +68,16 @@ class _SignInWithEmailState extends State<SignInWithEmail> {
                 ),
                 child: TextButton(
                   onPressed: () {
-                    if (emailController.text.isNotEmpty &&
-                        passwordController.text.isNotEmpty) {
-                      /*utils = DatabaseUtils(
-                        emailInput: emailController.text.toString(),
-                        passwordInput: passwordController.text.toString(),
-                      );*/
-                      utils.LoginUser(emailController.text.toString(),
-                          passwordController.text.toString());
-                    }
+
+
+
                   },
                   child: Text(
-                    LanguageString.lOG_IN.tr.toUpperCase(),
+                    AppLanguageString.lOG_IN.tr.toUpperCase(),
                     style: Get.textTheme.button,
                   ),
                 ),
-                /*child: Mutation(
-                  options: MutationOptions(
-                    document: gql(loginUser),
-                    variables: {
-                      'email': emailController.text.toString(),
-                      'password': passwordController.text.toString()
-                    },
-                    update: (cache, result) => cache,
-                    onCompleted: (dynamic resultData) {
-                      print('resultData: $resultData');
-                    },
-                  ),
-                  builder: (
-                    RunMutation runMutation,
-                    result,
-                  ) {
-                    return TextButton(
-                      onPressed: () {
-                        runMutation({
-                          */ /*'email': emailController.text.toString(),
-                          'password': passwordController.text.toString()*/ /*
-                        });
-                        print('emailController: ${emailController.text.toString()}');
-                        print('passwordController: ${passwordController.text.toString()}');
-                      },
-                      child: Text(
-                        LanguageString.lOG_IN.tr.toUpperCase(),
-                        style: Get.textTheme.button,
-                      ),
-                    );
-                  },
-                ),*/
-              ),
+              )
             ],
           ),
         ),

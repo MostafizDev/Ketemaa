@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
-class GraphQLConfiguration {
+class AppGraphQLConfiguration {
   static HttpLink httpLink = HttpLink(
-    'https://65.1.64.139/graphql/',
+    'http://65.1.64.139/graphql/',
   );
 
-  ValueNotifier<GraphQLClient> client = ValueNotifier(
+ static ValueNotifier<GraphQLClient> client = ValueNotifier(
     GraphQLClient(
       link: httpLink,
       cache: GraphQLCache(
@@ -15,7 +15,7 @@ class GraphQLConfiguration {
     ),
   );
 
-  GraphQLClient clientToQuery() {
+ static GraphQLClient clientToQuery() {
     return GraphQLClient(
       cache: GraphQLCache(
         store: InMemoryStore(),

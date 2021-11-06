@@ -1,0 +1,29 @@
+import 'package:flutter/material.dart';
+import 'package:ketemaa/core/utilities/app_dimension/app_dimenson.dart';
+import 'package:loading_indicator/loading_indicator.dart';
+
+class AppLoading extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        height: AppDimension.loading_widget_size,
+        width: AppDimension.loading_widget_size,
+        decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius:  BorderRadius.all(Radius.circular(AppDimension.radious)),
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.grey.withOpacity(0.2),
+                  spreadRadius: AppDimension.spreadRadius,
+                  blurRadius: AppDimension.blurRadius)
+            ]),
+        child: Padding(
+          padding:  EdgeInsets.all(AppDimension.padding_1),
+          child: new LoadingIndicator(
+            indicatorType: Indicator.lineSpinFadeLoader,
+            strokeWidth: 0.1,
+          ),
+        ));
+  }
+}

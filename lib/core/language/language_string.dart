@@ -1,4 +1,4 @@
-class LanguageString {
+class AppLanguageString {
   static String APPNAME = 'App_Name';
   static String GOOGLE_LOGIN = 'Google_Login';
   static String FACEBOOK_LOGIN = 'Facebook_Login';
@@ -14,6 +14,10 @@ class LanguageString {
   static String EMAIL = 'Email';
   static String PASSWORD = 'Password';
   static String SIGN_UP = 'Sign_Up';
-
   static String lOG_IN = 'Log_In';
+  static var AND ="and";
+  static var EMAIL_IS_REQUIRED = "Email is required";
+  static var VALIDATION_FAILED ="Validation Failed";
+
+  static var PASSWORD_IS_REQUIRED = "Password is required";
 }

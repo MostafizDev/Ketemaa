@@ -1,26 +1,63 @@
 import 'package:dartz/dartz.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:http/http.dart' as http;
+import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:ketemaa/core/error/failures.dart';
+import 'package:ketemaa/core/language/language_string.dart';
 import 'package:ketemaa/core/utilities/common_widgets/app_snack_bar.dart';
-import 'package:ketemaa/features/auth/presentation/sign_in/functions/functions.dart';
+import 'package:ketemaa/features/auth/data/RemoteDataRepo/auithenticiation_remote_repository.dart';
+import 'package:ketemaa/features/auth/data/Repository/authentication_repository.dart';
 
 class SigninController extends GetxController {
+  static SigninController to = Get.find();
 
- static SigninController to =Get.find();
-  SignInFunctions _signInFunctions = SignInFunctions();
+  //testFiledControllers
 
-  RxString response_value = "".obs;
+  TextEditingController emailTextFiledController = TextEditingController();
+  TextEditingController passwordTextFiledController = TextEditingController();
 
-  signIn() async {
-    Either<http.Response, dynamic> _response = await _signInFunctions.logIn();
+  //repo
+  AuthRepository _authRepository = AuthenticationRemoteRepository();
 
-    _response.fold((response) {
-      response_value(response.body);
+  RxString responseValue = "".obs;
+  RxBool loading = false.obs;
 
-      response_value.value = response.body;
-    }, (error) {
-      AppSnackBar.showErrorMessage();
-    });
+  @override
+  void onInit() {
+    // TODO: implement onInit
+    super.onInit();
+  }
+
+  signIn({@required String? email, @required String? password}) async {
+    if (_signInValidation()) {
+      Either<QueryResult, Failure> _response =
+          await _authRepository.signIn(email: email!, password: password!);
+
+      _response.fold((response) {}, (error) {
+        AppSnackBar.showErrorMessage();
+      });
+    }
+  }
+
+  _signInValidation() {
+    bool isValidated = false;
+
+    if (emailTextFiledController.text.isEmpty) {
+      isValidated = false;
+      AppSnackBar.showErrorMessage(
+          title: AppLanguageString.VALIDATION_FAILED.tr,
+          body: AppLanguageString.EMAIL_IS_REQUIRED.tr);
+      return false;
+    } else if (passwordTextFiledController.text.isEmpty) {
+      isValidated = false;
+      AppSnackBar.showErrorMessage(
+          title: AppLanguageString.VALIDATION_FAILED.tr,
+          body: AppLanguageString.PASSWORD_IS_REQUIRED.tr);
+      return false;
+    } else {
+      isValidated = true;
+    }
+
+    return isValidated;
   }
 }
