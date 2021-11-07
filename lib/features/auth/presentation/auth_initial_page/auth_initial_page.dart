@@ -44,8 +44,10 @@ class _AuthInitialPageState extends State<AuthInitialPage> {
                       color: AppColors.black),
                 ),
                 IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.cancel_outlined),
+                  onPressed: () {
+                    Get.toNamed(AppRoutes.CONTROLLER_PAGE);
+                  },
+                  icon: const Icon(Icons.cancel_outlined),
                 ),
               ],
             ),
@@ -59,16 +61,20 @@ class _AuthInitialPageState extends State<AuthInitialPage> {
             ),
             AppSpaces.spaces_height_25,
             SocialLoginButton(
-                image: AppAsset.google_icon, text: AppLanguageString.GOOGLE_LOGIN.tr),
+                image: AppAsset.google_icon,
+                text: AppLanguageString.GOOGLE_LOGIN.tr),
             AppSpaces.spaces_height_15,
             SocialLoginButton(
-                image: AppAsset.facebook_icon, text: AppLanguageString.FACEBOOK_LOGIN.tr),
+                image: AppAsset.facebook_icon,
+                text: AppLanguageString.FACEBOOK_LOGIN.tr),
             AppSpaces.spaces_height_15,
             SocialLoginButton(
-                image: AppAsset.apple_icon, text: AppLanguageString.APPLE_LOGIN.tr),
+                image: AppAsset.apple_icon,
+                text: AppLanguageString.APPLE_LOGIN.tr),
             AppSpaces.spaces_height_15,
             SocialLoginButton(
-                image: AppAsset.email_icon, text: AppLanguageString.EMAIL_LOGIN.tr),
+                image: AppAsset.email_icon,
+                text: AppLanguageString.EMAIL_LOGIN.tr),
             AppSpaces.spaces_height_30,
             Center(
               child: InkWell(

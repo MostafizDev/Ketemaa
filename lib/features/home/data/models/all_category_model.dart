@@ -1,33 +1,17 @@
 class AllCategory {
-  Data? data;
+  String? categoryName;
+  String? categoryImage;
 
-  AllCategory({this.data});
-
-  AllCategory.fromJson(Map<String, dynamic> json) {
-    data = json['data'] != null ? new Data.fromJson(json['data']) : null;
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.data != null) {
-      data['data'] = this.data!.toJson();
-    }
-    return data;
-  }
+  AllCategory({this.categoryName, this.categoryImage});
 }
+/*List<AllCategory> allCategory = [
+  AllCategory(
+    categoryName: "Property for Rent",
+    categoryImage: AppAsset.demo_category,
+  ),
+  AllCategory(
+    categoryName: "Property for Rent",
+    categoryImage: AppAsset.demo_category,
+  ),
+];*/
 
-class Data {
-  String? allCategoryKeyword;
-
-  Data({this.allCategoryKeyword});
-
-  Data.fromJson(Map<String, dynamic> json) {
-    allCategoryKeyword = json['allCategoryKeyword'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['allCategoryKeyword'] = this.allCategoryKeyword;
-    return data;
-  }
-}

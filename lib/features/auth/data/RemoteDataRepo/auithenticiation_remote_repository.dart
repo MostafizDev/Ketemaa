@@ -35,13 +35,13 @@ class AuthenticationRemoteRepository extends AuthRepository {
     var userLogin = '''
     mutation loginUser (\$email: String!, \$password: String!){
         loginUser(email: "$email", password: "$password"){
-    success
-    access
-    refresh
-    user{
-      username
-    }
-  }
+          success
+          access
+          refresh
+          user{
+            username
+          }
+        }
     }
    ''';
 

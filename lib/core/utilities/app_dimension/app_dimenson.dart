@@ -46,4 +46,8 @@ class AppDimension {
   static double blurRadius = 05;
 
   static double padding_1 = 8.0 ;
+
+  static double category_image_height = 30.0 ;
+
+  static double category_image_width = 30.0 ;
 }

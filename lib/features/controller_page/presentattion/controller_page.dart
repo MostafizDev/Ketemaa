@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:ketemaa/core/utilities/app_colors/app_colors.dart';
 import 'package:ketemaa/features/controller_page/widgets/get_body.dart';
 import 'package:ketemaa/features/controller_page/widgets/get_bottom_bar.dart';
-import 'package:ketemaa/features/home/home.dart';
+import 'package:ketemaa/features/home/presentation/home.dart';
 
 class ControllerPage extends StatefulWidget {
   const ControllerPage({Key? key}) : super(key: key);

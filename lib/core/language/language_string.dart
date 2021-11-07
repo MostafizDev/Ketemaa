@@ -16,8 +16,12 @@ class AppLanguageString {
   static String SIGN_UP = 'Sign_Up';
   static String lOG_IN = 'Log_In';
   static var AND ="and";
-  static var EMAIL_IS_REQUIRED = "Email is required";
-  static var VALIDATION_FAILED ="Validation Failed";
+  static var EMAIL_IS_REQUIRED = "Email_is_required";
+  static var VALIDATION_FAILED ="Validation_Failed";
 
-  static var PASSWORD_IS_REQUIRED = "Password is required";
+  static var PASSWORD_IS_REQUIRED = "Password_is_required";
+
+  static String POPULAR_IN = "Popular_in";
+  static String RESIDENTIAL_FOR_RENT ='Residentials_for_Rent';
+
 }

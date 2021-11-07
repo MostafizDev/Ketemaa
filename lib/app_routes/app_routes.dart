@@ -4,7 +4,7 @@ import 'package:ketemaa/features/auth/presentation/auth_initial_page/auth_initia
 import 'package:ketemaa/features/auth/presentation/sign_in/sign_in_email.dart';
 import 'package:ketemaa/features/auth/presentation/sign_up/sign_up.dart';
 import 'package:ketemaa/features/controller_page/presentattion/controller_page.dart';
-import 'package:ketemaa/features/home/home.dart';
+import 'package:ketemaa/features/home/presentation/home.dart';
 import 'package:ketemaa/features/splash_screen/splash_screen.dart';
 
 class AppRoutes {
