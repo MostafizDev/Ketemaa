@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:ketemaa/core/utilities/app_assets/app_assets.dart';
+import 'package:ketemaa/core/utilities/app_colors/app_colors.dart';
+import 'package:ketemaa/core/utilities/app_dimension/app_dimenson.dart';
 import 'package:ketemaa/core/utilities/app_dimension/app_sizes.dart';
 import 'package:ketemaa/core/utilities/app_spaces/app_spaces.dart';
 
-class ResidentialCard extends StatelessWidget {
-  const ResidentialCard({Key? key}) : super(key: key);
+class ResidentialForRentCard extends StatelessWidget {
+  const ResidentialForRentCard({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -37,15 +40,32 @@ class ResidentialCard extends StatelessWidget {
             ),
             AppSpaces.spaces_height_5,
             Padding(
-              padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+              padding: EdgeInsets.only(
+                left: AppDimension.padding_1,
+                right: AppDimension.padding_1,
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text('Price'),
+                children: [
+                  AppSpaces.spaces_height_5,
                   Text(
-                    'Attribute-1' '.' 'Attribute-2',
-                    maxLines: 2,
+                    'Price',
+                    style: Get.textTheme.bodyText2!.copyWith(
+                      color: AppColors.primaryColor,
+                      fontWeight: FontWeight.bold,
+                      fontSize: AppDimension.h2,
+                    ),
                   ),
+                  AppSpaces.spaces_height_5,
+                  Text(
+                    'Attribute-1' '.' ' Attribute-2',
+                    overflow: TextOverflow.ellipsis,
+                    style: Get.textTheme.bodyText2!.copyWith(
+                      color: AppColors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  AppSpaces.spaces_height_5,
                   Text('Location'),
                 ],
               ),

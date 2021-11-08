@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 
 class AppSpaces {
-  static Padding spaces_bottom_1 = Padding(padding: EdgeInsets.only(bottom: 5));
+  static Padding spaces_bottom_5 = Padding(padding: EdgeInsets.only(bottom: 5));
 
+  static Padding spaces_height_1 = Padding(padding: EdgeInsets.only(top: 1));
+  static Padding spaces_height_2 = Padding(padding: EdgeInsets.only(top: 2));
   static Padding spaces_height_5 = Padding(padding: EdgeInsets.only(top: 5));
   static Padding spaces_height_10 = Padding(padding: EdgeInsets.only(top: 10));
   static Padding spaces_height_15 = Padding(padding: EdgeInsets.only(top: 15));
