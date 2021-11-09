@@ -34,12 +34,11 @@ class HomeRemoteRepository extends HomeRepository {
           document: gql(category),
         ));
         _categoryResponse = Left(_categoryResult);
-      }
-      else{
+      } else {
         _categoryResponse = Right(DataNotFound());
       }
     } on Exception catch (e) {
-      _categoryResponse =  Right(ServerFailure());
+      _categoryResponse = Right(ServerFailure());
     }
 
     return _categoryResponse;
@@ -48,7 +47,51 @@ class HomeRemoteRepository extends HomeRepository {
   }
 
   @override
-  Future<Either<QueryResult, Failure>> residentialForRent() {
-    throw UnimplementedError();
+  Future<Either<QueryResult, Failure>> propertyForRent(
+      {var city, var subCategoryName}) async {
+    Either<QueryResult, Failure> _propertyRentResponse;
+    var propertyForRentResponse = '''
+    query{
+  propertyRentAdvertises(city: "$city", category: "$subCategoryName"){
+    totalCount
+    edges{
+      node{
+        price
+        currency
+        location
+        availability
+        status
+        category {
+          keyword
+          objectId
+          id
+          name
+          parent{
+            objectId
+            name
+          }
+        }
+      }
+    } 
+  }
+} 
+   ''';
+
+    try {
+      if (true) {
+        QueryResult _propertyForRentResult =
+            await AppGraphQLConfiguration.clientToQuery().query(QueryOptions(
+          document: gql(propertyForRentResponse),
+        ));
+        _propertyRentResponse = Left(_propertyForRentResult);
+        //printInfo(info:" $_TAG :  ${propertyForRentResponse.toString()}");
+      } else {
+        _propertyRentResponse = Right(DataNotFound());
+      }
+    } on Exception catch (e) {
+      _propertyRentResponse = Right(ServerFailure());
+    }
+
+    return _propertyRentResponse;
   }
 }

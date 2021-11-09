@@ -5,5 +5,5 @@ import 'package:ketemaa/core/error/failures.dart';
 
 abstract class HomeRepository {
   Future<Either<QueryResult, Failure>> category();
-  Future<Either<QueryResult, Failure>> residentialForRent();
+  Future<Either<QueryResult, Failure>> propertyForRent({var city, var subCategoryName});
 }
