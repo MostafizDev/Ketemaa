@@ -4,23 +4,23 @@ import 'package:ketemaa/core/language/language_string.dart';
 import 'package:ketemaa/core/utilities/app_colors/app_colors.dart';
 import 'package:ketemaa/core/utilities/app_dimension/app_dimenson.dart';
 import 'package:ketemaa/core/utilities/app_spaces/app_spaces.dart';
+import 'package:ketemaa/core/utilities/common_widgets/app_loading.dart';
 import 'package:ketemaa/features/home/_controller/home_controller.dart';
 import 'package:ketemaa/features/home/presentation/widgets/category_card.dart';
 import 'package:ketemaa/features/home/presentation/widgets/popular_in_row.dart';
 import 'package:ketemaa/features/home/presentation/widgets/residential_for_rent_card.dart';
 
 class Home extends StatelessWidget {
-  const Home({Key? key}) : super(key: key);
+  Home({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
     Get.put(HomeController());
     HomeController.to.fetchHomeCategoryData();
-    HomeController.to.fetchRentPropertiesData();
-    /*printInfo(
-        info:
-            "SubCategory :: ${HomeController.to.propertyRentModel.value.propertyRentAdvertises!.edges![0].node!.price.toString()}");*/
+    HomeController.to.fetchRentPropertiesData("Residential For Rent");
     return Scaffold(
+      appBar: AppBar(),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.only(
@@ -31,9 +31,7 @@ class Home extends StatelessWidget {
             children: [
               Obx(() {
                 return HomeController.to.categoryModel.value.categories == null
-                    ? CircularProgressIndicator(
-                        color: AppColors.primaryColor,
-                      )
+                    ? AppLoading()
                     : CategoryCard(
                         category: HomeController.to.categoryModel.value
                             .categories!.edges!, //need to null check
@@ -44,21 +42,32 @@ class Home extends StatelessWidget {
                 type: AppLanguageString.POPULAR_IN.tr,
                 popularIn: AppLanguageString.RESIDENTIAL_FOR_RENT.tr,
               ),
-              SizedBox(
-                  width: Get.width,
-                  height: Get.height * .35,
-                  child: Obx(() {
-                    return HomeController.to.propertyRentModel.value
-                                .propertyRentAdvertises ==
-                            null
-                        ? CircularProgressIndicator(
-                            color: AppColors.primaryColor,
-                          )
-                        : ResidentialForRentCard(
-                            subCategory: HomeController.to.propertyRentModel
-                                .value.propertyRentAdvertises!.edges!,
-                          );
-                  })),
+              Obx(() {
+                return HomeController.to.propertyRentModel.value
+                            .propertyRentAdvertises ==
+                        null
+                    ? AppLoading()
+                    : ResidentialForRentCard(
+                        subCategory: HomeController.to.propertyRentModel.value
+                            .propertyRentAdvertises!.edges!,
+                      );
+              }),
+              /*SizedBox(
+                width: Get.width,
+                height: Get.height * .35,
+                child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: HomeController.to.propertyRentModel.value
+                        .propertyRentAdvertises!.edges!.length,
+                    itemBuilder: (context, index) {
+                      //HomeController.to.index.value = index;
+                      return ResidentialForRentCard(
+                        categoryIndex: index,
+                        subCategory: HomeController.to.propertyRentModel.value
+                            .propertyRentAdvertises!.edges!,
+                      );
+                    }),
+              ),*/
             ],
           ),
         ),

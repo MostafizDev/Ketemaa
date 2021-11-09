@@ -32,40 +32,34 @@ class AuthenticationRemoteRepository extends AuthRepository {
   @override
   Future<Either<QueryResult, Failure>> signIn(
       {String? email, String? password}) async {
+    Either<QueryResult, Failure> _signInResponse;
     var userLogin = '''
-    mutation loginUser (\$email: String!, \$password: String!){
+    mutation {
         loginUser(email: "$email", password: "$password"){
           success
           access
           refresh
           user{
             username
+            email
+            phone
           }
         }
     }
    ''';
 
-    /*var variables = {
-      "input": {"email": email, "password": password}
-    };
-*/
- /*   Mutation(options: MutationOptions(document: gql(userLogin)),
-      builder: (RunMutation insert,  result) {
-        return Column();
-      },);*/
+    try {
+      QueryResult _signInResult =
+          await AppGraphQLConfiguration.clientToQuery().mutate(MutationOptions(
+        document: gql(userLogin),
+      ));
+      _signInResponse = Left(_signInResult);
+      //printInfo(info: "$_TAG gq response :: ${_signInResult.data} ");
+    } on Exception catch (e) {
+      _signInResponse = Right(ServerFailure());
 
-    QueryResult queryResult =
-    await AppGraphQLConfiguration.clientToQuery().mutate(MutationOptions(
-      document: gql(userLogin),
-    )
-    );
-    printInfo(info: "$_TAG gq response :: ${queryResult.data} ");
-    printInfo(info: "$_TAG gq response email :: $email ");
-    printInfo(info: "$_TAG gq response pass :: $password ");
-    //printInfo(info: "$_TAG gq response variables :: $variables ");
-
-    // TODO: implement signIn
-    throw UnimplementedError();
+    }
+    return _signInResponse;
   }
 
   @override

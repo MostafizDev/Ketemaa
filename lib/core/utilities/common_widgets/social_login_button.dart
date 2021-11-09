@@ -36,8 +36,8 @@ class _SocialLoginButtonState extends State<SocialLoginButton> {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(Icons.check),
-          SizedBox(
+          const Icon(Icons.check),
+          const SizedBox(
             width: 12.0,
           ),
           Text(
@@ -51,7 +51,7 @@ class _SocialLoginButtonState extends State<SocialLoginButton> {
     fToast.showToast(
       child: toast,
       gravity: ToastGravity.BOTTOM,
-      toastDuration: Duration(seconds: 2),
+      toastDuration: const Duration(seconds: 2),
     );
 
     // Custom Toast Position
@@ -74,10 +74,10 @@ class _SocialLoginButtonState extends State<SocialLoginButton> {
         widget.text == 'Continue with Email'
             ? Get.toNamed(AppRoutes.SIGN_IN_EMAIL)
             : _showToast();
-        print('Button Pressed: ${AppLanguageString.EMAIL_LOGIN}');
+        //print('Button Pressed: ${AppLanguageString.EMAIL_LOGIN}');
       },
       child: Container(
-        margin: EdgeInsets.only(left: 10.0, right: 10.0),
+        margin: const EdgeInsets.only(left: 10.0, right: 10.0),
         height: Get.height * .08,
         width: Get.width,
         decoration: BoxDecoration(

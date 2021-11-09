@@ -16,6 +16,8 @@ class HomeController extends GetxController {
 
   Rx<PropertyRentModel> propertyRentModel = PropertyRentModel().obs;
 
+  RxInt index = 0.obs;
+
   @override
   void onInit() {
     // TODO: implement onInit
@@ -35,9 +37,10 @@ class HomeController extends GetxController {
     }, (r) => printInfo(info: r.toString()));
   }
 
-  fetchRentPropertiesData({var city, var subCategoryName}) async {
+  fetchRentPropertiesData(var subCategoryName) async {
+    var city = "38";
     Either<QueryResult, Failure> _response = await _homeRepository
-        .propertyForRent(city: "38", subCategoryName: "Residential For Rent");
+        .propertyForRent(city: "$city", subCategoryName: "$subCategoryName");
     _response.fold((l) {
       /*printInfo(info: " Success Data :: " + l.data.toString());
       printInfo(

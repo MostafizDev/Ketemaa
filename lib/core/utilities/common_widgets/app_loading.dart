@@ -3,7 +3,6 @@ import 'package:ketemaa/core/utilities/app_dimension/app_dimenson.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 
 class AppLoading extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -11,7 +10,8 @@ class AppLoading extends StatelessWidget {
         width: AppDimension.loading_widget_size,
         decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius:  BorderRadius.all(Radius.circular(AppDimension.radious)),
+            borderRadius:
+                BorderRadius.all(Radius.circular(AppDimension.radious)),
             boxShadow: [
               BoxShadow(
                   color: Colors.grey.withOpacity(0.2),
@@ -19,7 +19,7 @@ class AppLoading extends StatelessWidget {
                   blurRadius: AppDimension.blurRadius)
             ]),
         child: Padding(
-          padding:  EdgeInsets.all(AppDimension.padding_1),
+          padding: EdgeInsets.all(AppDimension.padding_1),
           child: const LoadingIndicator(
             indicatorType: Indicator.lineSpinFadeLoader,
             strokeWidth: 0.1,

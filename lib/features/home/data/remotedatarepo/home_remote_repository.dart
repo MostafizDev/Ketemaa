@@ -49,6 +49,8 @@ class HomeRemoteRepository extends HomeRepository {
   @override
   Future<Either<QueryResult, Failure>> propertyForRent(
       {var city, var subCategoryName}) async {
+    subCategoryName ?? "";
+    printInfo(info: '$city     $subCategoryName');
     Either<QueryResult, Failure> _propertyRentResponse;
     var propertyForRentResponse = '''
     query{

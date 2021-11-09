@@ -25,7 +25,7 @@ class Language extends Translations {
           'Log_In': 'Log In',
           'and': "and",
           AppLanguageString.POPULAR_IN: 'Popular in',
-          AppLanguageString.RESIDENTIAL_FOR_RENT: 'Residentials for Rent',
+          AppLanguageString.RESIDENTIAL_FOR_RENT: 'Residential for Rent',
         },
         'bd_BD': {},
       };
