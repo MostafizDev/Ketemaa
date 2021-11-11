@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:ketemaa/core/utilities/app_assets/app_assets.dart';
 import 'package:ketemaa/core/utilities/app_colors/app_colors.dart';
-import 'package:ketemaa/core/utilities/app_dimension/app_dimenson.dart';
+import 'package:ketemaa/core/utilities/app_dimension/app_dimension.dart';
 import 'package:ketemaa/core/utilities/app_dimension/app_sizes.dart';
 import 'package:ketemaa/core/utilities/app_spaces/app_spaces.dart';
 import 'package:ketemaa/features/home/data/remotedatarepo/home_remote_repository.dart';
@@ -29,7 +29,7 @@ class CategoryCard extends StatelessWidget {
       ),
       itemBuilder: (BuildContext context, int index) {
         return Card(
-          elevation: 5.0,
+          elevation: 3.0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.0),
           ),

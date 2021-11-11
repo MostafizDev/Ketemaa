@@ -15,7 +15,8 @@ class PopularInRow extends StatelessWidget {
       children: [
         Text(
           type! + ' ' + popularIn!,
-          style: Get.textTheme.bodyText2!.copyWith(color: AppColors.black),
+          style: Get.textTheme.bodyText2!
+              .copyWith(color: AppColors.black, fontWeight: FontWeight.bold),
         ),
         IconButton(
           onPressed: () {},

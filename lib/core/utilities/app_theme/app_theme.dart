@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ketemaa/core/utilities/app_colors/app_colors.dart';
-import 'package:ketemaa/core/utilities/app_dimension/app_dimenson.dart';
+import 'package:ketemaa/core/utilities/app_dimension/app_dimension.dart';
 
 class AppTheme {
   static ThemeData themeData() {

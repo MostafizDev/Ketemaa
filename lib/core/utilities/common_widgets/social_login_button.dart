@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:ketemaa/app_routes/app_routes.dart';
 import 'package:ketemaa/core/language/language_string.dart';
 import 'package:ketemaa/core/utilities/app_colors/app_colors.dart';
-import 'package:ketemaa/core/utilities/app_dimension/app_dimenson.dart';
+import 'package:ketemaa/core/utilities/app_dimension/app_dimension.dart';
 
 class SocialLoginButton extends StatefulWidget {
   String image;

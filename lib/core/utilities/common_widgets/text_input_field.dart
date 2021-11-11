@@ -2,7 +2,7 @@ import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ketemaa/core/utilities/app_colors/app_colors.dart';
-import 'package:ketemaa/core/utilities/app_dimension/app_dimenson.dart';
+import 'package:ketemaa/core/utilities/app_dimension/app_dimension.dart';
 
 class TextInputField extends StatefulWidget {
   String labelText;

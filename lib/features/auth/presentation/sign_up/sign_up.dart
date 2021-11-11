@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:get/get_utils/src/extensions/internacionalization.dart';
 import 'package:ketemaa/core/language/language_string.dart';
 import 'package:ketemaa/core/utilities/app_colors/app_colors.dart';
-import 'package:ketemaa/core/utilities/app_dimension/app_dimenson.dart';
+import 'package:ketemaa/core/utilities/app_dimension/app_dimension.dart';
 import 'package:ketemaa/core/utilities/app_spaces/app_spaces.dart';
 import 'package:ketemaa/core/utilities/common_widgets/password_input_field.dart';
 import 'package:ketemaa/core/utilities/common_widgets/text_input_field.dart';
@@ -74,7 +74,7 @@ class _SignUpState extends State<SignUp> {
                 width: Get.width,
                 decoration: BoxDecoration(
                   color: AppColors.textColor, // set border width
-                  borderRadius: BorderRadius.all(
+                  borderRadius: const BorderRadius.all(
                       Radius.circular(10.0)), // set rounded corner radius
                 ),
                 child: TextButton(

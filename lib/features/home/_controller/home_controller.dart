@@ -37,17 +37,11 @@ class HomeController extends GetxController {
     }, (r) => printInfo(info: r.toString()));
   }
 
-  fetchRentPropertiesData(var subCategoryName) async {
-    var city = "38";
+  fetchRentPropertiesData(var city) async {
     Either<QueryResult, Failure> _response = await _homeRepository
-        .propertyForRent(city: "$city", subCategoryName: "$subCategoryName");
+        .propertyForRent(city: "$city",);
     _response.fold((l) {
-      /*printInfo(info: " Success Data :: " + l.data.toString());
-      printInfo(
-          info: " Success Data Data :: " +
-              HomeController.to.propertyRentModel.value.propertyRentAdvertises!
-                  .edges![0].node!.price
-                  .toString());*/
+      printInfo(info: " Success Data :: " + l.data.toString());
       try {
         propertyRentModel.value = PropertyRentModel.fromJson(l.data!);
       } on Exception catch (e) {

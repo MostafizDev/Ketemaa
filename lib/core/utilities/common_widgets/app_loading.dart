@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ketemaa/core/utilities/app_dimension/app_dimenson.dart';
+import 'package:ketemaa/core/utilities/app_dimension/app_dimension.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 
 class AppLoading extends StatelessWidget {
@@ -9,15 +9,15 @@ class AppLoading extends StatelessWidget {
         height: AppDimension.loading_widget_size,
         width: AppDimension.loading_widget_size,
         decoration: BoxDecoration(
-            color: Colors.white,
+            //color: Colors.white,
             borderRadius:
                 BorderRadius.all(Radius.circular(AppDimension.radious)),
-            boxShadow: [
+            /*boxShadow: [
               BoxShadow(
-                  color: Colors.grey.withOpacity(0.2),
+                  color: Colors.grey.withOpacity(0.1),
                   spreadRadius: AppDimension.spreadRadius,
                   blurRadius: AppDimension.blurRadius)
-            ]),
+            ]*/),
         child: Padding(
           padding: EdgeInsets.all(AppDimension.padding_1),
           child: const LoadingIndicator(
