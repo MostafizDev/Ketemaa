@@ -6,6 +6,7 @@ import 'package:ketemaa/app_routes/app_routes.dart';
 import 'package:ketemaa/core/error/failures.dart';
 import 'package:ketemaa/core/language/language_string.dart';
 import 'package:ketemaa/core/utilities/common_widgets/app_snack_bar.dart';
+import 'package:ketemaa/features/_global/sharedpreference/sp_controller.dart';
 import 'package:ketemaa/features/auth/data/RemoteDataRepo/auithenticiation_remote_repository.dart';
 import 'package:ketemaa/features/auth/data/Repository/authentication_repository.dart';
 import 'package:ketemaa/features/auth/data/models/user_login_model.dart';
@@ -52,6 +53,10 @@ class SigninController extends GetxController {
               : printInfo(
                   info:
                       'False :${SigninController.to.userLogin.value.loginUser!.success}');
+
+          SharedPreferenceController.to
+              .storeToken(userLogin.value.loginUser!.access);
+          SharedPreferenceController.to.getToken();
         } on Exception catch (e) {
           Right(DataNotFound());
 

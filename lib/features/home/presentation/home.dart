@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:ketemaa/core/utilities/app_dimension/app_dimension.dart';
 import 'package:ketemaa/core/utilities/app_spaces/app_spaces.dart';
 import 'package:ketemaa/core/utilities/common_widgets/app_loading.dart';
+import 'package:ketemaa/features/_global/sharedpreference/sp_controller.dart';
 import 'package:ketemaa/features/home/_controller/home_controller.dart';
 import 'package:ketemaa/features/home/presentation/widgets/category_card.dart';
 import 'package:ketemaa/features/home/presentation/widgets/porperty_for_rent_listview.dart';
@@ -17,6 +18,8 @@ class Home extends StatelessWidget {
     Get.put(HomeController());
     HomeController.to.fetchHomeCategoryData();
     HomeController.to.fetchRentPropertiesData("38");
+
+    SharedPreferenceController.to.getToken();
 
     return Scaffold(
       appBar: AppBar(),

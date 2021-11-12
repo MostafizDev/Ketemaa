@@ -4,6 +4,7 @@ import 'package:ketemaa/core/utilities/app_colors/app_colors.dart';
 import 'package:ketemaa/features/controller_page/widgets/get_body.dart';
 import 'package:ketemaa/features/controller_page/widgets/get_bottom_bar.dart';
 import 'package:ketemaa/features/home/presentation/home.dart';
+import 'package:ketemaa/features/place_a_add/presentation/place_a_add.dart';
 
 class ControllerPage extends StatefulWidget {
   const ControllerPage({Key? key}) : super(key: key);
@@ -65,11 +66,7 @@ class _ControllerPageState extends State<ControllerPage> {
         ),
       );
     } else if (index == 2) {
-      return Container(
-        child: Center(
-          child: Text(names[index]),
-        ),
-      );
+      return PlaceAAdd();
     } else if (index == 3) {
       return Container(
         child: Center(

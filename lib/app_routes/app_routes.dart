@@ -5,6 +5,7 @@ import 'package:ketemaa/features/auth/presentation/sign_in/sign_in_email.dart';
 import 'package:ketemaa/features/auth/presentation/sign_up/sign_up.dart';
 import 'package:ketemaa/features/controller_page/presentattion/controller_page.dart';
 import 'package:ketemaa/features/home/presentation/home.dart';
+import 'package:ketemaa/features/place_a_add/presentation/place_a_add.dart';
 import 'package:ketemaa/features/splash_screen/splash_screen.dart';
 
 class AppRoutes {
@@ -14,6 +15,7 @@ class AppRoutes {
   static String SIGN_IN_EMAIL = "/sign_in_email";
   static String HOME = "/home";
   static String CONTROLLER_PAGE = "/controller_page";
+  static String PLACE_A_ADD = "/place_a_add";
 
   static List<GetPage> AppRoutesList() {
     return [
@@ -23,6 +25,7 @@ class AppRoutes {
       GetPage(name: SIGN_IN_EMAIL, page: () => SignInWithEmail()),
       GetPage(name: HOME, page: () => Home()),
       GetPage(name: CONTROLLER_PAGE, page: () => ControllerPage()),
+      GetPage(name: PLACE_A_ADD, page: () => PlaceAAdd()),
     ];
   }
 }

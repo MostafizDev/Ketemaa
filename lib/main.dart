@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:ketemaa/features/_global/sharedpreference/sp_controller.dart';
 import 'app_routes/app_routes.dart';
 import 'core/graphQLconfig/graphql_config.dart';
 import 'core/language/language.dart';
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(SharedPreferenceController());
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: AppTheme.themeData(),
