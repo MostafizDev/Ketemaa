@@ -26,6 +26,8 @@ class Language extends Translations {
           'and': "and",
           AppLanguageString.POPULAR_IN: 'Popular in',
           AppLanguageString.RESIDENTIAL_FOR_RENT: 'Residential for Rent',
+          AppLanguageString.SELECT_CITY: 'Select a City',
+          AppLanguageString.PLACEYOURADD: 'Where should we place your ad?',
         },
         'bd_BD': {},
       };

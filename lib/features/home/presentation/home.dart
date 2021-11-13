@@ -17,7 +17,6 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(HomeController());
     HomeController.to.fetchHomeCategoryData();
-    HomeController.to.fetchRentPropertiesData("38");
 
     SharedPreferenceController.to.getToken();
 
@@ -26,8 +25,8 @@ class Home extends StatelessWidget {
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.only(
-            left: AppDimension.padding,
-            right: AppDimension.padding,
+            left: AppDimension.padding_16,
+            right: AppDimension.padding_16,
           ),
           child: Column(
             children: [

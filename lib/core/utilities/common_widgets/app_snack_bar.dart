@@ -13,6 +13,7 @@ class AppSnackBar {
 
   static showSuccessMessage({String title = "", String body = "" }) {
     Get.showSnackbar(GetBar(
+      duration: 1000.milliseconds,
       title: title,
       message: body,
     ));

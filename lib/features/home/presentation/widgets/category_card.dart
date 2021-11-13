@@ -44,8 +44,8 @@ class CategoryCard extends StatelessWidget {
               AppSpaces.spaces_height_10,
               Padding(
                 padding:EdgeInsets.only(
-                  left: AppDimension.padding_1,
-                  right: AppDimension.padding_1,
+                  left: AppDimension.padding_8,
+                  right: AppDimension.padding_8,
                 ),
                 child: Text(
                   category![index].node.name,

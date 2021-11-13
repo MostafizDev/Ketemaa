@@ -2,6 +2,6 @@ import 'package:dartz/dartz.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:ketemaa/core/error/failures.dart';
 
-abstract class PlaceAddController {
-  Future<Either<QueryResult, Failure>> cities();
+abstract class PlaceAddRepository {
+  Future<Either<QueryResult, Failure>> placeAddCities();
 }

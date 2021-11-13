@@ -23,4 +23,7 @@ class AppLanguageString {
 
   static String POPULAR_IN = "Popular_in";
   static String RESIDENTIAL_FOR_RENT = 'Residentials_for_Rent';
+
+  static String SELECT_CITY = 'Select_City';
+  static String PLACEYOURADD = 'Place_your_Add';
 }

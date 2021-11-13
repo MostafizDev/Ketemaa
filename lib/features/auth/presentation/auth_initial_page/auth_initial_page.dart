@@ -10,6 +10,8 @@ import 'package:ketemaa/core/utilities/app_colors/app_colors.dart';
 import 'package:ketemaa/core/utilities/app_spaces/app_spaces.dart';
 import 'package:ketemaa/core/utilities/common_widgets/image_slider.dart';
 import 'package:ketemaa/core/utilities/common_widgets/social_login_button.dart';
+import 'package:ketemaa/features/home/_controller/home_controller.dart';
+import 'package:ketemaa/features/place_a_add/_controller/place_a_add_controller.dart';
 
 class AuthInitialPage extends StatefulWidget {
   const AuthInitialPage({Key? key}) : super(key: key);
@@ -23,6 +25,10 @@ class _AuthInitialPageState extends State<AuthInitialPage> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
+    Get.put(HomeController());
+    Get.put(PlaceAddController());
+    HomeController.to.fetchRentPropertiesData("38");
+    PlaceAddController.to.fetchCityData();
     return Scaffold(
       backgroundColor: AppColors.white,
       body: SafeArea(

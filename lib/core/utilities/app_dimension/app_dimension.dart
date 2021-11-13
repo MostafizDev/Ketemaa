@@ -17,7 +17,9 @@ class AppDimension {
 
   static double h6 = 26;
 
-  static double padding = 16;
+  static double padding_16 = 16;
+
+  static double padding_8 = 8.0 ;
 
   static double radius = 16;
   static double primary_radius = 10 ;
@@ -45,9 +47,10 @@ class AppDimension {
 
   static double blurRadius = 05;
 
-  static double padding_1 = 8.0 ;
-
   static double category_image_height = 30.0 ;
 
   static double category_image_width = 30.0 ;
+  static double city_divider_tickness = 0.5 ;
+
+
 }

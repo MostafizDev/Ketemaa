@@ -1,13 +1,16 @@
 import 'package:bottom_bar_page_transition/bottom_bar_page_transition.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:ketemaa/app_routes/app_routes.dart';
 import 'package:ketemaa/core/utilities/app_colors/app_colors.dart';
-import 'package:ketemaa/features/controller_page/widgets/get_body.dart';
-import 'package:ketemaa/features/controller_page/widgets/get_bottom_bar.dart';
+
 import 'package:ketemaa/features/home/presentation/home.dart';
 import 'package:ketemaa/features/place_a_add/presentation/place_a_add.dart';
 
 class ControllerPage extends StatefulWidget {
-  const ControllerPage({Key? key}) : super(key: key);
+  var pageIndex;
+
+  ControllerPage({Key? key, required this.pageIndex}) : super(key: key);
 
   @override
   _ControllerPageState createState() => _ControllerPageState();
@@ -34,6 +37,7 @@ class _ControllerPageState extends State<ControllerPage> {
 
   @override
   void initState() {
+    _currentPage = widget.pageIndex;
     super.initState();
   }
 
@@ -66,6 +70,7 @@ class _ControllerPageState extends State<ControllerPage> {
         ),
       );
     } else if (index == 2) {
+      //return Get.toNamed(AppRoutes.PLACE_A_ADD);
       return PlaceAAdd();
     } else if (index == 3) {
       return Container(

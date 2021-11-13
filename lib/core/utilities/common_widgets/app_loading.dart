@@ -19,7 +19,7 @@ class AppLoading extends StatelessWidget {
                   blurRadius: AppDimension.blurRadius)
             ]*/),
         child: Padding(
-          padding: EdgeInsets.all(AppDimension.padding_1),
+          padding: EdgeInsets.all(AppDimension.padding_8),
           child: const LoadingIndicator(
             indicatorType: Indicator.lineSpinFadeLoader,
             strokeWidth: 0.1,

@@ -24,7 +24,7 @@ class AppRoutes {
       GetPage(name: SIGN_UP, page: () => SignUp()),
       GetPage(name: SIGN_IN_EMAIL, page: () => SignInWithEmail()),
       GetPage(name: HOME, page: () => Home()),
-      GetPage(name: CONTROLLER_PAGE, page: () => ControllerPage()),
+      GetPage(name: CONTROLLER_PAGE, page: () => ControllerPage(pageIndex: 0,)),
       GetPage(name: PLACE_A_ADD, page: () => PlaceAAdd()),
     ];
   }
