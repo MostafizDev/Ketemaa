@@ -5,20 +5,11 @@ import 'package:ketemaa/app_routes/app_routes.dart';
 import 'package:ketemaa/core/utilities/app_colors/app_colors.dart';
 
 import 'package:ketemaa/features/home/presentation/home.dart';
+import 'package:ketemaa/features/place_a_add/_controller/place_a_add_controller.dart';
 import 'package:ketemaa/features/place_a_add/presentation/place_a_add.dart';
 
-class ControllerPage extends StatefulWidget {
-  var pageIndex;
-
-  ControllerPage({Key? key, required this.pageIndex}) : super(key: key);
-
-  @override
-  _ControllerPageState createState() => _ControllerPageState();
-}
-
-class _ControllerPageState extends State<ControllerPage> {
+class ControllerPage extends StatelessWidget {
   int totalPage = 5;
-  int _currentPage = 0;
   List<String> names = [
     'Home',
     'Favourite',
@@ -35,29 +26,25 @@ class _ControllerPageState extends State<ControllerPage> {
     Icons.person,
   ];
 
-  @override
-  void initState() {
-    _currentPage = widget.pageIndex;
-    super.initState();
-  }
-
-  Duration duration = Duration(milliseconds: 300);
+  Duration duration = const Duration(milliseconds: 300);
   Curve curve = Curves.ease;
   TransitionType transitionType = TransitionType.slide;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: BottomBarPageTransition(
-        builder: (_, index) => getBody(index),
-        currentIndex: _currentPage,
-        totalLength: totalPage,
-        transitionType: transitionType,
-        transitionDuration: duration,
-        transitionCurve: curve,
-      ),
-      bottomNavigationBar: getBottomBar(),
-    );
+    return Obx((){
+      return Scaffold(
+        body: BottomBarPageTransition(
+          builder: (_, index) => getBody(index),
+          currentIndex: PlaceAddController.to.currentPage.value,
+          totalLength: totalPage,
+          transitionType: transitionType,
+          transitionDuration: duration,
+          transitionCurve: curve,
+        ),
+        bottomNavigationBar: getBottomBar(),
+      );
+    });
   }
 
   getBody(int index) {
@@ -92,11 +79,10 @@ class _ControllerPageState extends State<ControllerPage> {
       selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
       selectedFontSize: 12,
       unselectedFontSize: 12,
-      currentIndex: _currentPage,
+      currentIndex: PlaceAddController.to.currentPage.value,
       onTap: (index) {
-        print(_currentPage);
-        _currentPage = index;
-        setState(() {});
+        print(PlaceAddController.to.currentPage.value);
+        PlaceAddController.to.currentPage.value = index;
       },
       selectedItemColor: AppColors.black,
       unselectedItemColor: AppColors.grey,

@@ -5,7 +5,6 @@ import 'package:ketemaa/core/utilities/app_colors/app_colors.dart';
 import 'package:ketemaa/core/utilities/app_dimension/app_dimension.dart';
 
 class SubmitButton extends StatefulWidget {
-
   const SubmitButton({Key? key}) : super(key: key);
 
   @override
@@ -17,7 +16,6 @@ class _SubmitButtonState extends State<SubmitButton> {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.all(AppDimension.b1),
-      //padding: EdgeInsets.all(AppDimension.b1),
       height: Get.height * .09,
       width: Get.width,
       decoration: BoxDecoration(

@@ -28,6 +28,17 @@ class Language extends Translations {
           AppLanguageString.RESIDENTIAL_FOR_RENT: 'Residential for Rent',
           AppLanguageString.SELECT_CITY: 'Select a City',
           AppLanguageString.PLACEYOURADD: 'Where should we place your ad?',
+          AppLanguageString.SELECT_CATEGORY: 'What are you listing?',
+          AppLanguageString.MATCH_CATEGORY:
+              'Choose the category that your ad fits into.',
+          AppLanguageString.PLACE_A_ADD: 'Place a Ad',
+          AppLanguageString.PROPERTY_ADD_TITLE:
+              'First, enter a short title to describe you listing',
+          AppLanguageString.PROPERTY_ADD_DISCRIPTION:
+              'Make your title informative and attractive.',
+          AppLanguageString.PROPERTY_ADD_TITLE_HINT:
+              'e.g. Studio apt. available for monthly rent',
+          AppLanguageString.LETS_GO: 'Let\'s Go',
         },
         'bd_BD': {},
       };

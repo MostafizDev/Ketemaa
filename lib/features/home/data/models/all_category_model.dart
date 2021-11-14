@@ -5,14 +5,14 @@ class CategoryModel {
 
   CategoryModel.fromJson(Map<String, dynamic> json) {
     categories = json['categories'] != null
-        ? new Categories.fromJson(json['categories'])
+        ? Categories.fromJson(json['categories'])
         : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.categories != null) {
-      data['categories'] = this.categories!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (categories != null) {
+      data['categories'] = categories!.toJson();
     }
     return data;
   }
@@ -29,16 +29,16 @@ class Categories {
     if (json['edges'] != null) {
       edges = [];
       json['edges'].forEach((v) {
-        edges!.add(new Edges.fromJson(v));
+        edges!.add(Edges.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['totalCount'] = this.totalCount;
-    if (this.edges != null) {
-      data['edges'] = this.edges!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['totalCount'] = totalCount;
+    if (edges != null) {
+      data['edges'] = edges!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -50,13 +50,13 @@ class Edges {
   Edges({this.node});
 
   Edges.fromJson(Map<String, dynamic> json) {
-    node = json['node'] != null ? new Node.fromJson(json['node']) : null;
+    node = json['node'] != null ? Node.fromJson(json['node']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.node != null) {
-      data['node'] = this.node!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (node != null) {
+      data['node'] = node!.toJson();
     }
     return data;
   }
@@ -64,19 +64,25 @@ class Edges {
 
 class Node {
   var name;
+  var keyword;
   var objectId;
+  var childCount;
 
-  Node({this.name, this.objectId});
+  Node({this.name, this.keyword, this.objectId, this.childCount});
 
   Node.fromJson(Map<String, dynamic> json) {
     name = json['name'];
+    keyword = json['keyword'];
     objectId = json['objectId'];
+    childCount = json['childCount'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['name'] = this.name;
-    data['objectId'] = this.objectId;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['name'] = name;
+    data['keyword'] = keyword;
+    data['objectId'] = objectId;
+    data['childCount'] = childCount;
     return data;
   }
 }

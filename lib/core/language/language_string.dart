@@ -26,4 +26,15 @@ class AppLanguageString {
 
   static String SELECT_CITY = 'Select_City';
   static String PLACEYOURADD = 'Place_your_Add';
+
+  static String SELECT_CATEGORY = 'Select_Category';
+  static String MATCH_CATEGORY = 'Match_Category';
+
+  static String PLACE_A_ADD = 'Place_Add';
+
+  static String PROPERTY_ADD_TITLE = 'Property_Add_Title';
+  static String PROPERTY_ADD_DISCRIPTION = 'Property_Add_Discription';
+  static String PROPERTY_ADD_TITLE_HINT = 'Property_Add_Title_Hint';
+  static String LETS_GO = 'Lets_Go';
+
 }

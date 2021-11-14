@@ -15,16 +15,18 @@ class HomeRemoteRepository extends HomeRepository {
     Either<QueryResult, Failure> _categoryResponse;
     var category = '''
     query {
-  categories{
-    totalCount
-		edges{
-      node{
-        name
-        objectId
+      categories{
+        totalCount
+		    edges{
+          node{
+            name
+            keyword
+            objectId
+            childCount
+          }
+        }
       }
     }
-  }
-}
    ''';
 
     try {
@@ -47,8 +49,7 @@ class HomeRemoteRepository extends HomeRepository {
   }
 
   @override
-  Future<Either<QueryResult, Failure>> propertyForRent(
-      {var city}) async {
+  Future<Either<QueryResult, Failure>> propertyForRent({var city}) async {
     Either<QueryResult, Failure> _propertyRentResponse;
     var propertyForRentResponse = '''
     query{
