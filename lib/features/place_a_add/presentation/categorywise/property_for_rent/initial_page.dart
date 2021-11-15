@@ -1,6 +1,9 @@
+import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ketemaa/app_routes/app_routes.dart';
 import 'package:ketemaa/core/language/language_string.dart';
+import 'package:ketemaa/core/utilities/app_assets/app_assets.dart';
 import 'package:ketemaa/core/utilities/app_colors/app_colors.dart';
 import 'package:ketemaa/core/utilities/app_dimension/app_dimension.dart';
 import 'package:ketemaa/core/utilities/app_spaces/app_spaces.dart';
@@ -21,13 +24,14 @@ class PropertyInitialPage extends StatelessWidget {
           AppLanguageString.PLACE_A_ADD.tr,
           style: Get.textTheme.headline2!.copyWith(fontWeight: FontWeight.bold),
         ),
-        leading: InkWell(
-          onTap: () {
+        leading: FlatButton(
+          onPressed: () {
             Get.back();
           },
-          child: Icon(
-            Icons.arrow_back_rounded,
-            color: AppColors.black,
+          child: Image.asset(
+            AppAsset.back_icon,
+            height: 18.0,
+            width: 18.0,
           ),
         ),
       ),
@@ -53,9 +57,15 @@ class PropertyInitialPage extends StatelessWidget {
             ),
             AppSpaces.spaces_height_25,
             TextField(
+              onChanged: (value) {
+                value != ""
+                    ? PlaceAddController.to.titleSubmitButton.value = true
+                    : PlaceAddController.to.titleSubmitButton.value = false;
+              },
               controller:
                   PlaceAddController.to.propertyRentTitleFieldController,
               decoration: InputDecoration(
+                focusColor: AppColors.black,
                 hintText: AppLanguageString.PROPERTY_ADD_TITLE_HINT.tr,
                 border: OutlineInputBorder(
                   borderSide: BorderSide(color: AppColors.grey),
@@ -67,24 +77,51 @@ class PropertyInitialPage extends StatelessWidget {
               keyboardType: TextInputType.text,
             ),
             AppSpaces.spaces_height_20,
-            Container(
-              height: Get.height * .09,
-              width: Get.width,
-              decoration: BoxDecoration(
-                color: AppColors.grey, // set border width
-                borderRadius: BorderRadius.all(
-                  Radius.circular(AppDimension.propertyRentTitleRadius),
-                ), // set rounded corner radius
-              ),
-              child: TextButton(
-                onPressed: () {},
-                child: Text(
-                  AppLanguageString.SIGN_UP.tr.toUpperCase(),
-                  style: Get.textTheme.bodyText1!
-                      .copyWith(color: AppColors.textColor),
-                ),
-              ),
-            ),
+            Obx(() {
+              return PlaceAddController.to.titleSubmitButton.value == true
+                  ? Container(
+                      height: Get.height * .09,
+                      width: Get.width,
+                      decoration: BoxDecoration(
+                        color: AppColors.primaryColor,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(AppDimension.propertyRentTitleRadius),
+                        ),
+                      ),
+                      child: TextButton(
+                        onPressed: () {
+                          Get.toNamed(AppRoutes.PROPERTY_AGENT_PAGE);
+                          printInfo(
+                              info:
+                                  'Clicked after submit : ${PlaceAddController.to.titleSubmitButton.value} ');
+                        },
+                        child: Text(
+                          AppLanguageString.LETS_GO.tr.toUpperCase(),
+                          style: Get.textTheme.bodyText1!.copyWith(
+                              color: AppColors.textColor,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    )
+                  : Container(
+                      height: Get.height * .09,
+                      width: Get.width,
+                      decoration: BoxDecoration(
+                        color: AppColors.grey, // set border width
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(AppDimension.propertyRentTitleRadius),
+                        ), // set rounded corner radius
+                      ),
+                      child: Center(
+                        child: Text(
+                          AppLanguageString.LETS_GO.tr.toUpperCase(),
+                          style: Get.textTheme.bodyText1!.copyWith(
+                              color: AppColors.textColor,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    );
+            }),
           ],
         ),
       ),

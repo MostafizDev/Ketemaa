@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ketemaa/app_routes/app_routes.dart';
 import 'package:ketemaa/core/language/language_string.dart';
+import 'package:ketemaa/core/utilities/app_assets/app_assets.dart';
 import 'package:ketemaa/core/utilities/app_colors/app_colors.dart';
 import 'package:ketemaa/core/utilities/app_dimension/app_dimension.dart';
 import 'package:ketemaa/core/utilities/app_spaces/app_spaces.dart';
@@ -20,13 +21,14 @@ class PlaceAAdd extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        leading: InkWell(
-          onTap: () {
+        leading: FlatButton(
+          onPressed: () {
             PlaceAddController.to.currentPage.value = 0;
           },
-          child: Icon(
-            Icons.close,
-            color: AppColors.black,
+          child: Image.asset(
+            AppAsset.back_icon,
+            height: 18.0,
+            width: 18.0,
           ),
         ),
       ),
@@ -34,7 +36,7 @@ class PlaceAAdd extends StatelessWidget {
     );
   }
 
-  Widget _cityList(){
+  Widget _cityList() {
     return ListView(
       children: [
         Column(
@@ -60,24 +62,36 @@ class PlaceAAdd extends StatelessWidget {
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               itemCount:
-              PlaceAddController.to.cityModel.value.cities!.totalCount,
+                  PlaceAddController.to.cityModel.value.cities!.totalCount,
               itemBuilder: (context, index) {
                 return InkWell(
                   onTap: () {
                     Get.toNamed(AppRoutes.CATEGORYFORADD);
-
+                    PlaceAddController.to.cityChecked = true.obs;
                     AppSnackBar.showSuccessMessage(
                         title: "City Clicked",
                         body:
-                        "You Selected ${PlaceAddController.to.cityModel.value.cities!.edges![index].node!.city.toString()}");
+                            "You Selected ${PlaceAddController.to.cityModel.value.cities!.edges![index].node!.city.toString()}");
                   },
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(PlaceAddController
-                          .to.cityModel.value.cities!.edges![index].node!.city
-                          .toString()),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(PlaceAddController.to.cityModel.value.cities!
+                              .edges![index].node!.city
+                              .toString()),
+                          PlaceAddController.to.cityChecked == true
+                              ? Image.asset(
+                                  AppAsset.tic_icon,
+                                  width: 20.0,
+                                  height: 20.0,
+                                )
+                              : const Icon(null),
+                        ],
+                      ),
                       AppSpaces.spaces_height_15,
                       Divider(
                         thickness: AppDimension.city_divider_tickness,

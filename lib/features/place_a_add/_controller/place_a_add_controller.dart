@@ -12,10 +12,15 @@ class PlaceAddController {
 
   Rx<int> currentPage = 0.obs;
 
+  RxBool cityChecked = false.obs;
   final PlaceAddRepository _placeAddRepository = PlaceAddRemoteRepository();
 
   TextEditingController propertyRentTitleFieldController =
       TextEditingController();
+
+  Rx onChangedValue = 0.obs;
+
+  RxBool titleSubmitButton = false.obs;
 
   RxBool showBottomSheet = true.obs;
 

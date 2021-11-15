@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ketemaa/app_routes/app_routes.dart';
 import 'package:ketemaa/core/language/language_string.dart';
+import 'package:ketemaa/core/utilities/app_assets/app_assets.dart';
 import 'package:ketemaa/core/utilities/app_colors/app_colors.dart';
 import 'package:ketemaa/core/utilities/app_dimension/app_dimension.dart';
 import 'package:ketemaa/core/utilities/app_dimension/app_sizes.dart';
@@ -19,13 +20,14 @@ class CategoryPage extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        leading: InkWell(
-          onTap: () {
+        leading: FlatButton(
+          onPressed: () {
             Get.back();
           },
-          child: Icon(
-            Icons.arrow_back_rounded,
-            color: AppColors.black,
+          child: Image.asset(
+            AppAsset.back_icon,
+            height: 18.0,
+            width: 18.0,
           ),
         ),
       ),

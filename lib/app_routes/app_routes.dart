@@ -6,6 +6,7 @@ import 'package:ketemaa/features/auth/presentation/sign_up/sign_up.dart';
 import 'package:ketemaa/features/controller_page/presentattion/controller_page.dart';
 import 'package:ketemaa/features/home/presentation/home.dart';
 import 'package:ketemaa/features/place_a_add/presentation/category_page.dart';
+import 'package:ketemaa/features/place_a_add/presentation/categorywise/property_for_rent/agent_page.dart';
 import 'package:ketemaa/features/place_a_add/presentation/categorywise/property_for_rent/initial_page.dart';
 import 'package:ketemaa/features/place_a_add/presentation/place_a_add.dart';
 import 'package:ketemaa/features/splash_screen/splash_screen.dart';
@@ -20,14 +21,30 @@ class AppRoutes {
   static String PLACE_A_ADD = "/place_a_add";
   static String CATEGORYFORADD = "/place_a_add_category";
   static String PROPERTY_INITAIL_PAGE = "/property_Initial_Page";
+  static String PROPERTY_AGENT_PAGE = "/property_Agent_Page";
 
   static List<GetPage> AppRoutesList() {
     return [
-      GetPage(name: INITAL_SCREEN, page: () => SplashScreen()),
-      GetPage(name: MAIN_AUTH, page: () => AuthInitialPage()),
-      GetPage(name: SIGN_UP, page: () => SignUp()),
-      GetPage(name: SIGN_IN_EMAIL, page: () => SignInWithEmail()),
-      GetPage(name: HOME, page: () => Home()),
+      GetPage(
+        name: INITAL_SCREEN,
+        page: () => SplashScreen(),
+      ),
+      GetPage(
+        name: MAIN_AUTH,
+        page: () => AuthInitialPage(),
+      ),
+      GetPage(
+        name: SIGN_UP,
+        page: () => SignUp(),
+      ),
+      GetPage(
+        name: SIGN_IN_EMAIL,
+        page: () => SignInWithEmail(),
+      ),
+      GetPage(
+        name: HOME,
+        page: () => Home(),
+      ),
       GetPage(
         name: CONTROLLER_PAGE,
         page: () => ControllerPage(),
@@ -36,8 +53,18 @@ class AppRoutes {
           name: PLACE_A_ADD,
           page: () => PlaceAAdd(),
           transition: Transition.downToUp),
-      GetPage(name: CATEGORYFORADD, page: () => CategoryPage()),
-      GetPage(name: PROPERTY_INITAIL_PAGE, page: () => PropertyInitialPage()),
+      GetPage(
+        name: CATEGORYFORADD,
+        page: () => CategoryPage(),
+      ),
+      GetPage(
+        name: PROPERTY_INITAIL_PAGE,
+        page: () => PropertyInitialPage(),
+      ),
+      GetPage(
+        name: PROPERTY_AGENT_PAGE,
+        page: () => PropertyAgentPage(),
+      ),
     ];
   }
 }
