@@ -105,10 +105,11 @@ class SignInWithEmail extends StatelessWidget {
   _loading() {
     return Obx(() {
       return Positioned.fill(
-          child: Align(
-        alignment: Alignment.center,
-        child: SigninController.to.loading.value ? AppLoading() : Container(),
-      ));
+        child: Align(
+          alignment: Alignment.center,
+          child: SigninController.to.loading.value ? AppLoading() : Container(),
+        ),
+      );
     });
   }
 }

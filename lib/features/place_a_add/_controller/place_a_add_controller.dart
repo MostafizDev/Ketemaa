@@ -12,7 +12,8 @@ class PlaceAddController {
 
   Rx<int> currentPage = 0.obs;
 
-  RxBool cityChecked = false.obs;
+  RxInt cityCheckedIndex = 100000000000000000.obs;
+
   final PlaceAddRepository _placeAddRepository = PlaceAddRemoteRepository();
 
   TextEditingController propertyRentTitleFieldController =

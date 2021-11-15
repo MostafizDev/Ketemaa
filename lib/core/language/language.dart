@@ -31,7 +31,7 @@ class Language extends Translations {
           AppLanguageString.SELECT_CATEGORY: 'What are you listing?',
           AppLanguageString.MATCH_CATEGORY:
               'Choose the category that your ad fits into.',
-          AppLanguageString.PLACE_A_ADD: 'Place a Ad',
+          AppLanguageString.PLACE_A_ADD: 'Place an Ad',
           AppLanguageString.PROPERTY_ADD_TITLE:
               'First, enter a short title to describe you listing',
           AppLanguageString.PROPERTY_ADD_DISCRIPTION:
@@ -39,6 +39,10 @@ class Language extends Translations {
           AppLanguageString.PROPERTY_ADD_TITLE_HINT:
               'e.g. Studio apt. available for monthly rent',
           AppLanguageString.LETS_GO: 'Let\'s Go',
+          AppLanguageString.PROPERTY_AGENT_TITLE:
+              'Are you a landlord or an agent?',
+          AppLanguageString.PROPERTY_LANDLORD: 'Landlord',
+          AppLanguageString.PROPERTY_AGENT: 'Agent',
         },
         'bd_BD': {},
       };

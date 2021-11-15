@@ -58,52 +58,55 @@ class PlaceAAdd extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(
               left: AppDimension.padding_16, right: AppDimension.padding_16),
-          child: ListView.builder(
-              physics: const NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              itemCount:
-                  PlaceAddController.to.cityModel.value.cities!.totalCount,
-              itemBuilder: (context, index) {
-                return InkWell(
-                  onTap: () {
-                    Get.toNamed(AppRoutes.CATEGORYFORADD);
-                    PlaceAddController.to.cityChecked = true.obs;
-                    AppSnackBar.showSuccessMessage(
-                        title: "City Clicked",
-                        body:
-                            "You Selected ${PlaceAddController.to.cityModel.value.cities!.edges![index].node!.city.toString()}");
-                  },
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(PlaceAddController.to.cityModel.value.cities!
-                              .edges![index].node!.city
-                              .toString()),
-                          PlaceAddController.to.cityChecked == true
-                              ? Image.asset(
-                                  AppAsset.tic_icon,
-                                  width: 20.0,
-                                  height: 20.0,
-                                )
-                              : const Icon(null),
-                        ],
-                      ),
-                      AppSpaces.spaces_height_15,
-                      Divider(
-                        thickness: AppDimension.city_divider_tickness,
-                        //thickness: .5,
-                        color: AppColors.grey,
-                        //height: 1.0,
-                      ),
-                      AppSpaces.spaces_height_10,
-                    ],
-                  ),
-                );
-              }),
+          child: Obx(() {
+            return ListView.builder(
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                itemCount:
+                    PlaceAddController.to.cityModel.value.cities!.totalCount,
+                itemBuilder: (context, index) {
+                  return InkWell(
+                    onTap: () {
+                      Get.toNamed(AppRoutes.CATEGORYFORADD);
+                      PlaceAddController.to.cityCheckedIndex.value = index;
+                      AppSnackBar.showSuccessMessage(
+                          title: "City Clicked",
+                          body:
+                              "You Selected ${PlaceAddController.to.cityModel.value.cities!.edges![index].node!.city.toString()}");
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(PlaceAddController.to.cityModel.value.cities!
+                                .edges![index].node!.city
+                                .toString()),
+                            PlaceAddController.to.cityCheckedIndex.value ==
+                                    index
+                                ? Image.asset(
+                                    AppAsset.tic_icon,
+                                    width: 20.0,
+                                    height: 20.0,
+                                  )
+                                : const Icon(null),
+                          ],
+                        ),
+                        AppSpaces.spaces_height_15,
+                        Divider(
+                          thickness: AppDimension.city_divider_tickness,
+                          //thickness: .5,
+                          color: AppColors.grey,
+                          //height: 1.0,
+                        ),
+                        AppSpaces.spaces_height_10,
+                      ],
+                    ),
+                  );
+                });
+          }),
         ),
       ],
     );

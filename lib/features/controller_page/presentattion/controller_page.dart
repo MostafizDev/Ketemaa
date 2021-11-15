@@ -1,15 +1,14 @@
 import 'package:bottom_bar_page_transition/bottom_bar_page_transition.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ketemaa/app_routes/app_routes.dart';
 import 'package:ketemaa/core/utilities/app_colors/app_colors.dart';
+import 'package:ketemaa/features/controller_page/controller/controller_page_controller.dart';
 
 import 'package:ketemaa/features/home/presentation/home.dart';
 import 'package:ketemaa/features/place_a_add/_controller/place_a_add_controller.dart';
 import 'package:ketemaa/features/place_a_add/presentation/place_a_add.dart';
 
 class ControllerPage extends StatelessWidget {
-  int totalPage = 5;
   List<String> names = [
     'Home',
     'Favourite',
@@ -32,12 +31,13 @@ class ControllerPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(ControllerPageController());
     return Obx((){
       return Scaffold(
         body: BottomBarPageTransition(
           builder: (_, index) => getBody(index),
           currentIndex: PlaceAddController.to.currentPage.value,
-          totalLength: totalPage,
+          totalLength: ControllerPageController.to.bottomBarData!.length,
           transitionType: transitionType,
           transitionDuration: duration,
           transitionCurve: curve,
@@ -81,15 +81,15 @@ class ControllerPage extends StatelessWidget {
       unselectedFontSize: 12,
       currentIndex: PlaceAddController.to.currentPage.value,
       onTap: (index) {
-        print(PlaceAddController.to.currentPage.value);
+        //print(PlaceAddController.to.currentPage.value);
         PlaceAddController.to.currentPage.value = index;
       },
       selectedItemColor: AppColors.black,
       unselectedItemColor: AppColors.grey,
       type: BottomNavigationBarType.fixed,
       items: List.generate(
-        totalPage,
-        (index) => BottomNavigationBarItem(
+        ControllerPageController.to.bottomBarData!.length,
+            (index) => BottomNavigationBarItem(
           icon: Icon(icons[index]),
           label: names[index],
         ),

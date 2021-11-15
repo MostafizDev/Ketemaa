@@ -8,6 +8,7 @@ import 'package:ketemaa/features/home/presentation/home.dart';
 import 'package:ketemaa/features/place_a_add/presentation/category_page.dart';
 import 'package:ketemaa/features/place_a_add/presentation/categorywise/property_for_rent/agent_page.dart';
 import 'package:ketemaa/features/place_a_add/presentation/categorywise/property_for_rent/initial_page.dart';
+import 'package:ketemaa/features/place_a_add/presentation/categorywise/property_for_rent/listing_form.dart';
 import 'package:ketemaa/features/place_a_add/presentation/place_a_add.dart';
 import 'package:ketemaa/features/splash_screen/splash_screen.dart';
 
@@ -22,6 +23,7 @@ class AppRoutes {
   static String CATEGORYFORADD = "/place_a_add_category";
   static String PROPERTY_INITAIL_PAGE = "/property_Initial_Page";
   static String PROPERTY_AGENT_PAGE = "/property_Agent_Page";
+  static String PROPERTY_LISTING_PAGE = "/property_Listing_Page";
 
   static List<GetPage> AppRoutesList() {
     return [
@@ -64,6 +66,10 @@ class AppRoutes {
       GetPage(
         name: PROPERTY_AGENT_PAGE,
         page: () => PropertyAgentPage(),
+      ),
+      GetPage(
+        name: PROPERTY_LISTING_PAGE,
+        page: () => PropertyListingForm(),
       ),
     ];
   }
