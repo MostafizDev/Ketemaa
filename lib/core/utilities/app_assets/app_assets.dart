@@ -17,4 +17,5 @@ class AppAsset {
   static String tic_icon = '${_icons}tic_mark.png';
   static String cross_icon = '${_icons}cross_mark.png';
   static String back_icon = '${_icons}back_small.png';
+  static String up_down = '${_icons}up_down.png';
 }

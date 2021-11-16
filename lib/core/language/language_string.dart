@@ -50,5 +50,18 @@ class AppLanguageString {
   static String TOUR360 = '360_Tour';
   static String YOUTUBE = 'Youtube';
   static String PHONE = 'Phone';
+  static String PRICE = 'Price_Per_Year';
+  static String DESCRIPTION = 'Describe_Your_Property';
+  static String SIZE = 'Size';
+  static String BEDROOM = 'Bedroom';
+  static String PR_REF_ID = 'Pr_Ref_ID';
+  static String RERA_LANDLORD = 'RERA_Landlord';
+  static String RERA_DEED_NUMBER = 'RERA_Deed_Number';
+  static String RERA_PRE_REG = 'RERA_Pre_Reg';
+  static String CNT_PER = 'RERA_Cnt_Pre';
+  static String NOTICE = 'Notice_Period';
+  static String MAINTAIN_FEE = 'Maintenance_Fee';
+  static String BUILDING = 'Building';
+  static String NEIGHBOUR = 'Neighbourhood';
 
 }

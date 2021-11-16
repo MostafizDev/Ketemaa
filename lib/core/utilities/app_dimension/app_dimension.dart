@@ -19,10 +19,10 @@ class AppDimension {
 
   static double padding_16 = 16;
 
-  static double padding_8 = 8.0 ;
+  static double padding_8 = 8.0;
 
   static double radius = 16;
-  static double primary_radius = 10 ;
+  static double primary_radius = 10;
 
   static double bottom_bar_size = 60;
 
@@ -48,11 +48,13 @@ class AppDimension {
   static double blurRadius = 05;
 
   static double propertyRentTitleRadius = 10;
+  static double propertyRentTitleBorder = 1;
 
-  static double category_image_height = 30.0 ;
+  static double category_image_height = 30.0;
 
-  static double category_image_width = 30.0 ;
-  static double city_divider_tickness = 0.5 ;
+  static double category_image_width = 30.0;
 
+  static double city_divider_tickness = 0.5;
 
+  static double up_down_icon_size = 15.0;
 }

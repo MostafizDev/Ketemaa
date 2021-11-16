@@ -25,6 +25,32 @@ class PlaceAddController {
       TextEditingController();
   TextEditingController propertyRentPhoneFieldController =
       TextEditingController();
+  TextEditingController propertyRentPriceFieldController =
+      TextEditingController();
+  TextEditingController propertyRentDescriptionFieldController =
+      TextEditingController();
+  TextEditingController propertyRentSizeFieldController =
+      TextEditingController();
+  TextEditingController propertyRentBedroomFieldController =
+      TextEditingController();
+  TextEditingController propertyRentRefIDFieldController =
+      TextEditingController();
+  TextEditingController propertyRentRERALandlordNameFieldController =
+      TextEditingController();
+  TextEditingController propertyRentDeedFieldController =
+      TextEditingController();
+  TextEditingController propertyRentPreRegFieldController =
+      TextEditingController();
+  TextEditingController propertyRentContactFieldController =
+      TextEditingController();
+  TextEditingController propertyRentNoticeFieldController =
+      TextEditingController();
+  TextEditingController propertyRentMaintainFeeFieldController =
+      TextEditingController();
+  TextEditingController propertyRentBuildingFieldController =
+      TextEditingController();
+  TextEditingController propertyRentNeighbourFieldController =
+      TextEditingController();
 
   Rx onChangedValue = 0.obs;
 

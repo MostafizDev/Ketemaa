@@ -7,13 +7,13 @@ import 'package:ketemaa/core/utilities/app_dimension/app_dimension.dart';
 import 'package:ketemaa/features/place_a_add/_controller/place_a_add_controller.dart';
 
 class PropertyTextInputField extends StatefulWidget {
-  String labelText;
+  String hintText;
   TextInputType textType;
   TextEditingController controller;
   bool? optionalText;
 
   PropertyTextInputField({
-    required this.labelText,
+    required this.hintText,
     required this.textType,
     required this.controller,
     this.optionalText,
@@ -29,29 +29,30 @@ class _PropertyTextInputFieldState extends State<PropertyTextInputField> {
   @override
   Widget build(BuildContext context) {
     Get.put(PlaceAddController());
-    printInfo(info: widget.optionalText.toString());
-    return Container(
-      height: Get.height * .09,
-      padding: EdgeInsets.all(AppDimension.b1),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        border: Border.all(color: AppColors.grey, width: 1.5),
-        borderRadius: BorderRadius.all(
-            Radius.circular(AppDimension.propertyRentTitleRadius)),
-      ),
-      child: TextField(
-        key: _formKey,
-        controller: widget.controller,
-        decoration: InputDecoration(
-          hintText: widget.labelText,
-          counterStyle: TextStyle(
-            overflow: TextOverflow.ellipsis,
-          ),
-          border: InputBorder.none,
-          suffixText: widget.optionalText == true ? AppLanguageString.OPTIONAL : '',
+    //printInfo(info: widget.optionalText.toString());
+    return TextField(
+      key: _formKey,
+      controller: widget.controller,
+      decoration: InputDecoration(
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.all(
+              Radius.circular(AppDimension.propertyRentTitleRadius)),
+          borderSide: BorderSide(width: AppDimension.propertyRentTitleBorder),
         ),
-        keyboardType: widget.textType,
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: AppColors.grey),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: AppColors.blueGrey),
+        ),
+        hintText: widget.hintText,
+        counterStyle: TextStyle(
+          overflow: TextOverflow.ellipsis,
+        ),
+        suffixText:
+            widget.optionalText == true ? AppLanguageString.OPTIONAL.tr : '',
       ),
+      keyboardType: widget.textType,
     );
   }
 }

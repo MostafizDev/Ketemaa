@@ -50,7 +50,7 @@ dependencies:
   graphql_flutter: ^5.0.0
   loading_indicator: ^3.0.2
   shared_preferences: ^2.0.8
-  adaptive_dialog: ^1.2.0
+  dropdown_plus: ^0.0.9
 
 
 dev_dependencies:

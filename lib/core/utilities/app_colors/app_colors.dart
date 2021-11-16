@@ -10,6 +10,7 @@ class AppColors {
   /*const Color(0xff5e5e5e);*/
   static Color error_color = Colors.red;
   static Color grey = Colors.grey;
+  static Color blueGrey = Colors.blueGrey;
   static Color hintColor = const Color(0xffA2A2A2);
   static Color white = Colors.white;
   static Color shadowColor = const Color(0xff213109);

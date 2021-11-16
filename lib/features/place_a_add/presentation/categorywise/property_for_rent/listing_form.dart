@@ -1,3 +1,4 @@
+import 'package:dropdown_plus/dropdown_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ketemaa/core/language/language_string.dart';
@@ -39,13 +40,12 @@ class PropertyListingForm extends StatelessWidget {
           left: AppDimension.padding_16,
           right: AppDimension.padding_16,
         ),
-        //crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           AppSpaces.spaces_height_30,
           Text(
             AppLanguageString.PROPERTY_LISTFORM_TITLE.tr,
-            style: Get.textTheme.headline4!
-                .copyWith(fontWeight: FontWeight.bold),
+            style:
+                Get.textTheme.headline4!.copyWith(fontWeight: FontWeight.bold),
             textAlign: TextAlign.center,
           ),
           AppSpaces.spaces_height_15,
@@ -59,29 +59,27 @@ class PropertyListingForm extends StatelessWidget {
           Text('Category Section'),
           AppSpaces.spaces_height_20,
 
-          //Title
+          ///Title
           PropertyTextInputField(
-            labelText: AppLanguageString.TITLE.tr,
+            hintText: AppLanguageString.TITLE.tr,
             textType: TextInputType.text,
-            controller:
-                PlaceAddController.to.propertyRentTitleFieldController,
+            controller: PlaceAddController.to.propertyRentTitleFieldController,
             optionalText: false,
           ),
           AppSpaces.spaces_height_15,
 
-          //360 Tour
+          ///360 Tour
           PropertyTextInputField(
-            labelText: AppLanguageString.TOUR360.tr,
+            hintText: AppLanguageString.TOUR360.tr,
             textType: TextInputType.text,
-            controller:
-                PlaceAddController.to.propertyRent360FieldController,
+            controller: PlaceAddController.to.propertyRent360FieldController,
             optionalText: true,
           ),
           AppSpaces.spaces_height_15,
 
-          //Youtube
+          ///Youtube
           PropertyTextInputField(
-            labelText: AppLanguageString.YOUTUBE.tr,
+            hintText: AppLanguageString.YOUTUBE.tr,
             textType: TextInputType.text,
             controller:
                 PlaceAddController.to.propertyRentYoutubeFieldController,
@@ -89,13 +87,133 @@ class PropertyListingForm extends StatelessWidget {
           ),
           AppSpaces.spaces_height_15,
 
-          //Youtube
+          ///Phone Number
           PropertyTextInputField(
-            labelText: AppLanguageString.PHONE.tr,
+            hintText: AppLanguageString.PHONE.tr,
+            textType: TextInputType.number,
+            controller: PlaceAddController.to.propertyRentPhoneFieldController,
+            optionalText: false,
+          ),
+          AppSpaces.spaces_height_15,
+
+          ///Price
+          PropertyTextInputField(
+            hintText: AppLanguageString.PRICE.tr,
+            textType: TextInputType.number,
+            controller: PlaceAddController.to.propertyRentPriceFieldController,
+            optionalText: false,
+          ),
+          AppSpaces.spaces_height_15,
+
+          ///Description
+          PropertyTextInputField(
+            hintText: AppLanguageString.SIZE.tr,
+            textType: TextInputType.text,
+            controller: PlaceAddController.to.propertyRentSizeFieldController,
+            optionalText: false,
+          ),
+          AppSpaces.spaces_height_15,
+
+          ///Bedrooms
+          TextDropdownFormField(
+            //controller: PlaceAddController.to.propertyRentBedroomFieldController,
+            options: const ['1', '2', '3'],
+            decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                suffixIcon: Image.asset(AppAsset.up_down),
+                suffixIconConstraints: BoxConstraints(
+                  maxHeight: AppDimension.up_down_icon_size,
+                  maxWidth: AppDimension.up_down_icon_size,
+                ),
+                hintText: AppLanguageString.BEDROOM.tr,
+                focusColor: AppColors.primaryColor),
+            dropdownHeight: 120,
+          ),
+          AppSpaces.spaces_height_15,
+
+          ///Property Ref ID
+          PropertyTextInputField(
+            hintText: AppLanguageString.PR_REF_ID.tr,
+            textType: TextInputType.text,
+            controller: PlaceAddController.to.propertyRentRefIDFieldController,
+            optionalText: true,
+          ),
+          AppSpaces.spaces_height_15,
+
+          ///RERA Landlord Name
+          PropertyTextInputField(
+            hintText: AppLanguageString.RERA_LANDLORD.tr,
+            textType: TextInputType.text,
+            controller: PlaceAddController
+                .to.propertyRentRERALandlordNameFieldController,
+            optionalText: true,
+          ),
+          AppSpaces.spaces_height_15,
+
+          ///RERA Title Deed Number
+          PropertyTextInputField(
+            hintText: AppLanguageString.RERA_DEED_NUMBER.tr,
+            textType: TextInputType.text,
+            controller: PlaceAddController.to.propertyRentDeedFieldController,
+            optionalText: true,
+          ),
+          AppSpaces.spaces_height_15,
+
+          ///RERA Pre Registration Number
+          PropertyTextInputField(
+            hintText: AppLanguageString.RERA_PRE_REG.tr,
+            textType: TextInputType.text,
+            controller: PlaceAddController.to.propertyRentPreRegFieldController,
+            optionalText: true,
+          ),
+          AppSpaces.spaces_height_15,
+
+          ///Minimum Contact Period
+          PropertyTextInputField(
+            hintText: AppLanguageString.CNT_PER.tr,
             textType: TextInputType.number,
             controller:
-                PlaceAddController.to.propertyRentPhoneFieldController,
-            optionalText: false,
+                PlaceAddController.to.propertyRentContactFieldController,
+            optionalText: true,
+          ),
+          AppSpaces.spaces_height_15,
+
+          ///Notice Period
+          PropertyTextInputField(
+            hintText: AppLanguageString.NOTICE.tr,
+            textType: TextInputType.number,
+            controller: PlaceAddController.to.propertyRentNoticeFieldController,
+            optionalText: true,
+          ),
+          AppSpaces.spaces_height_15,
+
+          ///Maintenance Fee
+          PropertyTextInputField(
+            hintText: AppLanguageString.MAINTAIN_FEE.tr,
+            textType: TextInputType.number,
+            controller:
+                PlaceAddController.to.propertyRentMaintainFeeFieldController,
+            optionalText: true,
+          ),
+          AppSpaces.spaces_height_15,
+
+          ///Building
+          PropertyTextInputField(
+            hintText: AppLanguageString.BUILDING.tr,
+            textType: TextInputType.text,
+            controller:
+                PlaceAddController.to.propertyRentBuildingFieldController,
+            optionalText: true,
+          ),
+          AppSpaces.spaces_height_15,
+
+          ///Neighbourhood
+          PropertyTextInputField(
+            hintText: AppLanguageString.NEIGHBOUR.tr,
+            textType: TextInputType.text,
+            controller:
+                PlaceAddController.to.propertyRentNeighbourFieldController,
+            optionalText: true,
           ),
         ],
       ),
