@@ -22,36 +22,38 @@ class Home extends StatelessWidget {
     SharedPreferenceController.to.getToken();
 
     return Scaffold(
-      appBar: AppBar(),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.only(
             left: AppDimension.padding_16,
             right: AppDimension.padding_16,
           ),
-          child: Column(
-            children: [
-              Obx(() {
-                return HomeController.to.categoryModel.value.categories == null
+          child: SafeArea(
+            child: Column(
+              children: [
+                const Text('Search Bar'),
+                Obx(() {
+                  return HomeController.to.categoryModel.value.categories == null
+                      ? AppLoading()
+                      : CategoryCard(
+                    category: HomeController
+                        .to.categoryModel.value.categories!.edges!,
+                    //need to null check
+                    mainAxisSpace: 3.0,
+                    crossAxisSpace: 3.0,
+                    childCount: 3,
+                    childAspectRatio: AppSizes.width3 / 130,
+                    cardElavation: 3.0,
+                  );
+                }),
+                AppSpaces.spaces_height_10,
+                HomeController
+                    .to.propertyRentModel.value.propertyRentAdvertises ==
+                    null
                     ? AppLoading()
-                    : CategoryCard(
-                        category: HomeController
-                            .to.categoryModel.value.categories!.edges!,
-                        //need to null check
-                        mainAxisSpace: 3.0,
-                        crossAxisSpace: 3.0,
-                        childCount: 3,
-                        childAspectRatio: AppSizes.width3 / 130,
-                        cardElavation: 3.0,
-                      );
-              }),
-              AppSpaces.spaces_height_10,
-              HomeController
-                          .to.propertyRentModel.value.propertyRentAdvertises ==
-                      null
-                  ? AppLoading()
-                  : const PropertyListView(),
-            ],
+                    : const PropertyListView(),
+              ],
+            ),
           ),
         ),
       ),

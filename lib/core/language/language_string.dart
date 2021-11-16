@@ -41,4 +41,14 @@ class AppLanguageString {
   static String PROPERTY_LANDLORD = 'Landlord';
   static String PROPERTY_AGENT = 'Agent';
 
+  static String PROPERTY_LISTFORM_TITLE = 'Property_listform_Title';
+  static String PROPERTY_LISTFORM_DES = 'Property_listform_Des';
+
+  static String OPTIONAL = 'Optional';
+
+  static String TITLE = 'Title';
+  static String TOUR360 = '360_Tour';
+  static String YOUTUBE = 'Youtube';
+  static String PHONE = 'Phone';
+
 }

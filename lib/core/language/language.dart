@@ -43,6 +43,14 @@ class Language extends Translations {
               'Are you a landlord or an agent?',
           AppLanguageString.PROPERTY_LANDLORD: 'Landlord',
           AppLanguageString.PROPERTY_AGENT: 'Agent',
+          AppLanguageString.PROPERTY_LISTFORM_TITLE: 'You\'re almost there',
+          AppLanguageString.PROPERTY_LISTFORM_DES:
+              'Include as much details and pictures as possible, and set the right price',
+          AppLanguageString.OPTIONAL: '*Optional',
+          AppLanguageString.TITLE: 'Title',
+          AppLanguageString.TOUR360: '360 Tour URL',
+          AppLanguageString.YOUTUBE: 'Youtube URL',
+          AppLanguageString.PHONE: 'Phone Number',
         },
         'bd_BD': {},
       };

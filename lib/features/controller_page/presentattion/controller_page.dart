@@ -57,7 +57,6 @@ class ControllerPage extends StatelessWidget {
         ),
       );
     } else if (index == 2) {
-      //return Get.toNamed(AppRoutes.PLACE_A_ADD);
       return PlaceAAdd();
     } else if (index == 3) {
       return Container(

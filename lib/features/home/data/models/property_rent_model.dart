@@ -63,6 +63,7 @@ class Edges {
 }
 
 class Node {
+  City? city;
   var description;
   var objectId;
   var id;
@@ -74,7 +75,9 @@ class Node {
   Category? category;
 
   Node(
-      {this.description,this.objectId,
+      {this.city,
+      this.description,
+      this.objectId,
       this.id,
       this.availability,
       this.price,
@@ -84,6 +87,7 @@ class Node {
       this.category});
 
   Node.fromJson(Map<String, dynamic> json) {
+    city = json['city'] != null ? City.fromJson(json['city']) : null;
     description = json['description'];
     objectId = json['objectId'];
     id = json['id'];
@@ -98,6 +102,9 @@ class Node {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
+    if (city != null) {
+      data['city'] = city!.toJson();
+    }
     data['description'] = description;
     data['objectId'] = objectId;
     data['id'] = id;
@@ -109,6 +116,28 @@ class Node {
     if (category != null) {
       data['category'] = category!.toJson();
     }
+    return data;
+  }
+}
+
+class City {
+  var objectId;
+  var region;
+  var city;
+
+  City({this.objectId, this.region, this.city});
+
+  City.fromJson(Map<String, dynamic> json) {
+    objectId = json['objectId'];
+    region = json['region'];
+    city = json['city'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['objectId'] = objectId;
+    data['region'] = region;
+    data['city'] = city;
     return data;
   }
 }
@@ -153,14 +182,16 @@ class Category {
 }
 
 class Parent {
+  var keyword;
   var childCount;
   var objectId;
   var id;
   var name;
 
-  Parent({this.childCount, this.objectId, this.id, this.name});
+  Parent({this.keyword, this.childCount, this.objectId, this.id, this.name});
 
   Parent.fromJson(Map<String, dynamic> json) {
+    keyword = json['keyword'];
     childCount = json['childCount'];
     objectId = json['objectId'];
     id = json['id'];
@@ -169,6 +200,7 @@ class Parent {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
+    data['keyword'] = keyword;
     data['childCount'] = childCount;
     data['objectId'] = objectId;
     data['id'] = id;

@@ -32,7 +32,7 @@ class HomeRemoteRepository extends HomeRepository {
     try {
       if (true) {
         QueryResult _categoryResult =
-            await AppGraphQLConfiguration.clientToQuery().query(QueryOptions(
+        await AppGraphQLConfiguration.clientToQuery().query(QueryOptions(
           document: gql(category),
         ));
         _categoryResponse = Left(_categoryResult);
@@ -53,7 +53,7 @@ class HomeRemoteRepository extends HomeRepository {
     Either<QueryResult, Failure> _propertyRentResponse;
     var propertyForRentResponse = '''
     query{
-  propertyRentAdvertises(city: "$city"){
+  propertyRentAdvertises(city: ""){
     totalCount
     edges{
       node{
@@ -81,7 +81,7 @@ class HomeRemoteRepository extends HomeRepository {
     try {
       if (true) {
         QueryResult _propertyForRentResult =
-            await AppGraphQLConfiguration.clientToQuery().query(QueryOptions(
+        await AppGraphQLConfiguration.clientToQuery().query(QueryOptions(
           document: gql(propertyForRentResponse),
         ));
         _propertyRentResponse = Left(_propertyForRentResult);

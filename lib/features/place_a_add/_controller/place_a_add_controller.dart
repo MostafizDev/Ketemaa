@@ -16,14 +16,19 @@ class PlaceAddController {
 
   final PlaceAddRepository _placeAddRepository = PlaceAddRemoteRepository();
 
+  //Property Rent Form Text Controller
   TextEditingController propertyRentTitleFieldController =
+      TextEditingController();
+  TextEditingController propertyRent360FieldController =
+      TextEditingController();
+  TextEditingController propertyRentYoutubeFieldController =
+      TextEditingController();
+  TextEditingController propertyRentPhoneFieldController =
       TextEditingController();
 
   Rx onChangedValue = 0.obs;
 
   RxBool titleSubmitButton = false.obs;
-
-  RxBool showBottomSheet = true.obs;
 
   Rx<CityModel> cityModel = CityModel().obs;
 

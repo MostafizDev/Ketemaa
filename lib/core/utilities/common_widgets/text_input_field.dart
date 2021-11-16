@@ -42,33 +42,33 @@ class _TextInputFieldState extends State<TextInputField> {
       ),
       child: widget.controller == 'emailController'
           ? TextFormField(
-              key: _formKey,
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter your email';
-                }
-                return null;
-              },
-              onChanged: (value) {
-                setState(() {
-                  value == null ? emailisValid = false : emailisValid = true;
-                });
-              },
-              controller: widget.controller,
-              decoration: InputDecoration(
-                hintText: widget.labelText,
-                border: InputBorder.none,
-              ),
-              keyboardType: widget.textType,
-            )
+        key: _formKey,
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            return 'Please enter your email';
+          }
+          return null;
+        },
+        onChanged: (value) {
+          setState(() {
+            value == null ? emailisValid = false : emailisValid = true;
+          });
+        },
+        controller: widget.controller,
+        decoration: InputDecoration(
+          hintText: widget.labelText,
+          border: InputBorder.none,
+        ),
+        keyboardType: widget.textType,
+      )
           : TextField(
-              controller: widget.controller,
-              decoration: InputDecoration(
-                hintText: widget.labelText,
-                border: InputBorder.none,
-              ),
-              keyboardType: widget.textType,
-            ),
+        controller: widget.controller,
+        decoration: InputDecoration(
+          hintText: widget.labelText,
+          border: InputBorder.none,
+        ),
+        keyboardType: widget.textType,
+      ),
     );
   }
 }

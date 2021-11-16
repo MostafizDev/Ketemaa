@@ -17,6 +17,7 @@ class ResidentialForRentCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //printInfo(info: subCategory![0].node!.city!.city.toString());
     return SizedBox(
       width: Get.width,
       height: Get.height * .35,
@@ -95,7 +96,10 @@ class ResidentialForRentCard extends StatelessWidget {
                                 ),
                                 AppSpaces.spaces_height_5,
                                 Text(
-                                  subCategory![index].node!.location.toString(),
+                                  subCategory![index]
+                                      .node!
+                                      .location
+                                      .toString(),
                                   overflow: TextOverflow.ellipsis,
                                   style: Get.textTheme.bodyText2!.copyWith(
                                     fontWeight: FontWeight.bold,
