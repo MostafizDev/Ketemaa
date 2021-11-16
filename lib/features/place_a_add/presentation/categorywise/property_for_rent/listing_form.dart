@@ -116,18 +116,23 @@ class PropertyListingForm extends StatelessWidget {
 
           ///Bedrooms
           TextDropdownFormField(
-            //controller: PlaceAddController.to.propertyRentBedroomFieldController,
+            controller: PlaceAddController.to.propertyRentBedroomFieldController,
             options: const ['1', '2', '3'],
             decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                suffixIcon: Image.asset(AppAsset.up_down),
+                contentPadding:  EdgeInsets.all( 16.0),
+
+                border: const OutlineInputBorder(),
+                suffixIcon: Padding(
+                  padding: const EdgeInsets.only(right: 8.0),
+                  child: Image.asset(AppAsset.up_down),
+                ),
                 suffixIconConstraints: BoxConstraints(
                   maxHeight: AppDimension.up_down_icon_size,
                   maxWidth: AppDimension.up_down_icon_size,
                 ),
                 hintText: AppLanguageString.BEDROOM.tr,
                 focusColor: AppColors.primaryColor),
-            dropdownHeight: 120,
+            dropdownHeight: 200,
           ),
           AppSpaces.spaces_height_15,
 

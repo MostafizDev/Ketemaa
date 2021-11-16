@@ -51,6 +51,9 @@ dependencies:
   loading_indicator: ^3.0.2
   shared_preferences: ^2.0.8
   dropdown_plus: ^0.0.9
+  firebase: ^9.0.2
+  firebase_core:
+
 
 
 dev_dependencies:
