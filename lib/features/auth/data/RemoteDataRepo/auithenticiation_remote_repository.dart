@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:http/http.dart' as http;
 import 'package:ketemaa/core/error/failures.dart';
-import 'package:ketemaa/core/graphQLconfig/graphql_config.dart';
+import 'package:ketemaa/core/graphQLConfig/graphql_config.dart';
 import 'package:ketemaa/core/utilities/common_widgets/app_snack_bar.dart';
 import 'package:ketemaa/features/auth/data/Repository/authentication_repository.dart';
 

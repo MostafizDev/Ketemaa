@@ -3,7 +3,7 @@ import 'package:get/get_utils/src/extensions/dynamic_extensions.dart';
 import 'package:graphql/src/core/query_result.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:ketemaa/core/error/failures.dart';
-import 'package:ketemaa/core/graphQLconfig/graphql_config.dart';
+import 'package:ketemaa/core/graphQLConfig/graphql_config.dart';
 import 'package:ketemaa/core/network/network_info.dart';
 import 'package:ketemaa/features/home/data/repository/home_repository.dart';
 
@@ -84,8 +84,11 @@ class HomeRemoteRepository extends HomeRepository {
         await AppGraphQLConfiguration.clientToQuery().query(QueryOptions(
           document: gql(propertyForRentResponse),
         ));
+
+
+
         _propertyRentResponse = Left(_propertyForRentResult);
-        //printInfo(info:" $_TAG :  ${propertyForRentResponse.toString()}");
+        printInfo(info:" $_TAG :  ${propertyForRentResponse.toString()}");
       } else {
         _propertyRentResponse = Right(DataNotFound());
       }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ketemaa/app_routes/app_routes.dart';
 import 'package:ketemaa/core/language/language_string.dart';
 import 'package:ketemaa/features/home/_controller/home_controller.dart';
 import 'package:ketemaa/features/home/data/models/property_rent_model.dart';
@@ -14,71 +13,91 @@ class PropertyListView extends StatelessWidget {
   Widget build(BuildContext context) {
     RxList<Edges> API_edge = HomeController
         .to.propertyRentModel.value.propertyRentAdvertises!.edges!.obs;
-    /*printInfo(
-        info: HomeController.to.propertyRentModel.value.propertyRentAdvertises!
-            .edges![0].node!.city!.region!);*/
     return ListView.builder(
-      physics: const NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
-      itemCount: 3,
-      itemBuilder: (context, index) {
-        return API_edge[index].node!.category!.keyword.toString() ==
-                "post_residential_rent_ad"
-            ? Column(
-                children: [
-                  PopularInRow(
-                    type: AppLanguageString.POPULAR_IN.tr,
-                    popularIn: API_edge[index].node!.category!.name.toString(),
-                  ),
-                  ResidentialForRentCard(
-                    categorykeyword:
-                        API_edge[index].node!.category!.keyword.toString(),
-                    subCategory: API_edge,
-                  ),
-                ],
-              )
-            : API_edge[index].node!.category!.keyword.toString() ==
-                    "post_commercial_rent_ad"
-                ? Column(
-                    children: [
-                      PopularInRow(
-                        type: AppLanguageString.POPULAR_IN.tr,
-                        popularIn:
-                            API_edge[index].node!.category!.name.toString(),
-                      ),
-                      ResidentialForRentCard(
-                        categorykeyword:
-                            API_edge[index].node!.category!.keyword.toString(),
-                        subCategory: API_edge,
-                      ),
-                    ],
-                  )
-                : API_edge[index].node!.category!.keyword.toString() ==
-                        "post_rooms_rent_ad"
-                    ? Column(
-                        children: [
-                          PopularInRow(
-                            type: AppLanguageString.POPULAR_IN.tr,
-                            popularIn:
-                                API_edge[index].node!.category!.name.toString(),
-                          ),
-                          InkWell(
-                            onTap: (){
-                              Get.toNamed(AppRoutes.PROPERTY_DETAILS_PAGE);
-                            },
-                            child: ResidentialForRentCard(
-                              categorykeyword: API_edge[index]
-                                  .node!
-                                  .category!
-                                  .keyword
-                                  .toString(),
-                              subCategory: API_edge,
-                            ),
-                          ),
-                        ],
-                      )
-                    : Container();
-      },
-    );
+        physics: const NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
+        itemCount: 3,
+        itemBuilder: (context, index) {
+          return API_edge[index]
+              .node!
+              .category!
+              .keyword
+              .toString() ==
+              "post_residential_rent_ad"
+              ? Column(
+            children: [
+              PopularInRow(
+                type: AppLanguageString.POPULAR_IN.tr,
+                popularIn: API_edge[index]
+                    .node!
+                    .category!
+                    .name
+                    .toString(),
+              ),
+              ResidentialForRentCard(
+                categorykeyword: API_edge[index]
+                    .node!
+                    .category!
+                    .keyword
+                    .toString(),
+                subCategory: API_edge,
+              ),
+            ],
+          )
+              : API_edge[index]
+              .node!
+              .category!
+              .keyword
+              .toString() ==
+              "post_commercial_rent_ad"
+              ? Column(
+            children: [
+              PopularInRow(
+                type: AppLanguageString.POPULAR_IN.tr,
+                popularIn: API_edge[index]
+                    .node!
+                    .category!
+                    .name
+                    .toString(),
+              ),
+              ResidentialForRentCard(
+                categorykeyword: API_edge[index]
+                    .node!
+                    .category!
+                    .keyword
+                    .toString(),
+                subCategory: API_edge,
+              ),
+            ],
+          )
+              : API_edge[index]
+              .node!
+              .category!
+              .keyword
+              .toString() ==
+              "post_rooms_rent_ad"
+              ? Column(
+            children: [
+              PopularInRow(
+                type:
+                AppLanguageString.POPULAR_IN.tr,
+                popularIn: API_edge[index]
+                    .node!
+                    .category!
+                    .name
+                    .toString(),
+              ),
+              ResidentialForRentCard(
+                categorykeyword: API_edge[index]
+                    .node!
+                    .category!
+                    .keyword
+                    .toString(),
+                subCategory: API_edge,
+              ),
+            ],
+          )
+              : Container();
+        });
   }
 }

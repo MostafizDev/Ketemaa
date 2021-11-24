@@ -107,7 +107,7 @@ class Home extends StatelessWidget {
                             .propertyRentAdvertises ==
                         null
                     ? AppLoading()
-                    : const PropertyListView(),
+                    :  PropertyListView(),
               ],
             ),
           ),

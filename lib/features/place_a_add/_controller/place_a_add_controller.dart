@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:dropdown_plus/dropdown_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
@@ -31,8 +32,8 @@ class PlaceAddController {
       TextEditingController();
   TextEditingController propertyRentSizeFieldController =
       TextEditingController();
-  TextEditingController propertyRentBedroomFieldController =
-      TextEditingController();
+  DropdownEditingController<String> propertyRentBedroomFieldController =
+  DropdownEditingController();
   TextEditingController propertyRentRefIDFieldController =
       TextEditingController();
   TextEditingController propertyRentRERALandlordNameFieldController =
