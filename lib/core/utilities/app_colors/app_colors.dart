@@ -13,6 +13,7 @@ class AppColors {
   static Color blueGrey = Colors.blueGrey;
   static Color hintColor = const Color(0xffA2A2A2);
   static Color white = Colors.white;
+  static Color greyWhite = const Color(0xffD3D3D3);
   static Color shadowColor = const Color(0xff213109);
   static Color black = Colors.black;
   static Color displayBottomColor = const Color(0xffF3FFF6);

@@ -21,6 +21,8 @@ class AppLanguageString {
 
   static var PASSWORD_IS_REQUIRED = "Password_is_required";
 
+  static String SEARCH_HINT = "Search_Hints";
+
   static String POPULAR_IN = "Popular_in";
   static String RESIDENTIAL_FOR_RENT = 'Residentials_for_Rent';
 

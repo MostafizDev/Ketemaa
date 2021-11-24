@@ -27,7 +27,7 @@ class _AuthInitialPageState extends State<AuthInitialPage> {
 
     Get.put(HomeController());
     Get.put(PlaceAddController());
-    HomeController.to.fetchRentPropertiesData("38");
+    HomeController.to.fetchRentPropertiesData("");
     PlaceAddController.to.fetchCityData();
     return Scaffold(
       backgroundColor: AppColors.white,
@@ -73,10 +73,6 @@ class _AuthInitialPageState extends State<AuthInitialPage> {
             SocialLoginButton(
                 image: AppAsset.facebook_icon,
                 text: AppLanguageString.FACEBOOK_LOGIN.tr),
-            AppSpaces.spaces_height_15,
-            SocialLoginButton(
-                image: AppAsset.apple_icon,
-                text: AppLanguageString.APPLE_LOGIN.tr),
             AppSpaces.spaces_height_15,
             SocialLoginButton(
                 image: AppAsset.email_icon,

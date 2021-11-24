@@ -1,6 +1,9 @@
 import 'package:equatable/equatable.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
 
 abstract class Failure extends Equatable {
+  var error;
+
   Failure([List properties = const <dynamic>[]]) : super();
 }
 
@@ -22,8 +25,19 @@ class NoConnectionFailure extends Failure {
   List<Object> get props => throw UnimplementedError();
 }
 
-
 class DataNotFound extends Failure {
+  @override
+  // TODO: implement props
+  List<Object> get props => throw UnimplementedError();
+}
+
+class GQException extends Failure {
+  OperationException? operationException;
+
+  GQException(operationException);
+
+  OperationException? get errorMessage => operationException;
+
   @override
   // TODO: implement props
   List<Object> get props => throw UnimplementedError();

@@ -53,11 +53,21 @@ class AuthenticationRemoteRepository extends AuthRepository {
           await AppGraphQLConfiguration.clientToQuery().mutate(MutationOptions(
         document: gql(userLogin),
       ));
-      _signInResponse = Left(_signInResult);
-      //printInfo(info: "$_TAG gq response :: ${_signInResult.data} ");
+
+      if (_signInResult.exception == null) {
+        printInfo(info: '58' + _signInResult.exception.toString());
+        _signInResponse = Left(_signInResult);
+      } else {
+        printInfo(info: '62 ' + _signInResult.exception.toString());
+        _signInResponse = Right(GQException(_signInResult.exception));
+      }
+
+      printInfo(
+          info:
+              "$_TAG gq response :: ${_signInResult.exception!.graphqlErrors[0].message} ");
     } on Exception catch (e) {
       _signInResponse = Right(ServerFailure());
-
+      printInfo(info: 'Catch');
     }
     return _signInResponse;
   }

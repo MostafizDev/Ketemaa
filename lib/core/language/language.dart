@@ -24,6 +24,7 @@ class Language extends Translations {
           'Sign_Up': 'Sign Up',
           'Log_In': 'Log In',
           'and': "and",
+          AppLanguageString.SEARCH_HINT: 'What are you looking for?',
           AppLanguageString.POPULAR_IN: 'Popular in',
           AppLanguageString.RESIDENTIAL_FOR_RENT: 'Residential for Rent',
           AppLanguageString.SELECT_CITY: 'Select a City',

@@ -57,4 +57,6 @@ class AppDimension {
   static double city_divider_tickness = 0.5;
 
   static double up_down_icon_size = 15.0;
+
+  static double productpageiconsize = 35.0;
 }

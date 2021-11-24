@@ -45,6 +45,16 @@ class AppTheme {
                 fontSize: AppDimension.h4, color: AppColors.textColor),
             letterSpacing: 0.3,
             wordSpacing: 0.5),
+        headline5: GoogleFonts.ubuntu(
+            textStyle: TextStyle(
+                fontSize: AppDimension.h5, color: AppColors.textColor),
+            letterSpacing: 0.3,
+            wordSpacing: 0.5),
+        headline6: GoogleFonts.ubuntu(
+            textStyle: TextStyle(
+                fontSize: AppDimension.h6, color: AppColors.textColor),
+            letterSpacing: 0.3,
+            wordSpacing: 0.5),
       ),
     );
   }

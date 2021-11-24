@@ -34,20 +34,20 @@ class SigninController extends GetxController {
   }
 
   signIn({@required String? email, @required String? password}) async {
-    if (_signInValidation()) {
-      loading.value = true;
-      Either<QueryResult, Failure> _response = await _authRepository.signIn(
-          email: emailTextFiledController.text.toString(),
-          password: passwordTextFiledController.text.toString());
+    loading.value = true;
+    Either<QueryResult, Failure> _response = await _authRepository.signIn(
+        email: emailTextFiledController.text.toString(),
+        password: passwordTextFiledController.text.toString());
 
-      _response.fold((l) {
-        loading.value = false;
-        printInfo(info: " Success Data :: " + l.data.toString());
-        try {
-          //userLogin.value = UserLoginModel.fromJson(l.data!);
-          l.data == null
-              ? ''
-              : userLogin.value = UserLoginModel.fromJson(l.data!);
+    _response.fold((l) {
+      loading.value = false;
+      printInfo(info: " Success Data :: " + l.data.toString());
+      try {
+        userLogin.value = UserLoginModel.fromJson(l.data!);
+        l.data == null
+            ? ''
+            : userLogin.value = UserLoginModel.fromJson(l.data!);
+        if (userLogin.value.errorModel == null) {
           userLogin.value.loginUser!.success == true
               ? Get.toNamed(AppRoutes.CONTROLLER_PAGE)
               : printInfo(
@@ -57,19 +57,25 @@ class SigninController extends GetxController {
           SharedPreferenceController.to
               .storeToken(userLogin.value.loginUser!.access);
           SharedPreferenceController.to.getToken();
-        } on Exception catch (e) {
-          Right(DataNotFound());
-
-          loading.value = false;
+        } else {
+          print(
+              "Error Model: ${userLogin.value.errorModel!.errors![0].message}");
         }
-        //printInfo(info: " Error Data :: " + l.data.toString());
-      }, (r) {
-        printInfo(info: r.toString());
-        AppSnackBar.showErrorMessage();
+      } on Exception catch (e) {
+        Right(DataNotFound());
 
         loading.value = false;
-      });
-    }
+      }
+      //printInfo(info: " Error Data :: " + l.data.toString());
+    }, (r) {
+      AppSnackBar.showErrorMessage(
+          title: AppLanguageString.VALIDATION_FAILED.tr,
+          body: userLogin.value.errorModel!.errors![0].message);
+      printInfo(
+          info: "Error: ${userLogin.value.errorModel!.errors![0].message}");
+
+      loading.value = false;
+    });
   }
 
   /*fetchUserLogin() async {

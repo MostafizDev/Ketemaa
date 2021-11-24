@@ -26,7 +26,7 @@ class PlaceAAdd extends StatelessWidget {
             PlaceAddController.to.currentPage.value = 0;
           },
           child: Image.asset(
-            AppAsset.back_icon,
+            AppAsset.cross_icon,
             height: 18.0,
             width: 18.0,
           ),

@@ -53,7 +53,7 @@ class HomeRemoteRepository extends HomeRepository {
     Either<QueryResult, Failure> _propertyRentResponse;
     var propertyForRentResponse = '''
     query{
-  propertyRentAdvertises(city: ""){
+  propertyRentAdvertises(city: "$city"){
     totalCount
     edges{
       node{

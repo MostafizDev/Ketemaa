@@ -36,7 +36,7 @@ class HomeController extends GetxController {
 
   fetchRentPropertiesData(var city) async {
     Either<QueryResult, Failure> _response =
-        await _homeRepository.propertyForRent(
+    await _homeRepository.propertyForRent(
       city: "$city",
     );
     _response.fold((l) {

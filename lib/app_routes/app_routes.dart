@@ -5,6 +5,7 @@ import 'package:ketemaa/features/auth/presentation/sign_in/sign_in_email.dart';
 import 'package:ketemaa/features/auth/presentation/sign_up/sign_up.dart';
 import 'package:ketemaa/features/controller_page/presentattion/controller_page.dart';
 import 'package:ketemaa/features/home/presentation/home.dart';
+import 'package:ketemaa/features/home/presentation/property_details_page.dart';
 import 'package:ketemaa/features/place_a_add/presentation/category_page.dart';
 import 'package:ketemaa/features/place_a_add/presentation/categorywise/property_for_rent/agent_page.dart';
 import 'package:ketemaa/features/place_a_add/presentation/categorywise/property_for_rent/initial_page.dart';
@@ -24,6 +25,7 @@ class AppRoutes {
   static String PROPERTY_INITAIL_PAGE = "/property_Initial_Page";
   static String PROPERTY_AGENT_PAGE = "/property_Agent_Page";
   static String PROPERTY_LISTING_PAGE = "/property_Listing_Page";
+  static String PROPERTY_DETAILS_PAGE = "/property_Details_Page";
 
   static List<GetPage> AppRoutesList() {
     return [
@@ -70,6 +72,10 @@ class AppRoutes {
       GetPage(
         name: PROPERTY_LISTING_PAGE,
         page: () => PropertyListingForm(),
+      ),
+      GetPage(
+        name: PROPERTY_DETAILS_PAGE,
+        page: () => PropertyDetailsPage(),
       ),
     ];
   }

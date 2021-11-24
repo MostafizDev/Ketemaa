@@ -1,9 +1,17 @@
-class UserLoginModel {
-  LoginUser? loginUser;
+import 'package:ketemaa/core/error/model/error_model.dart';
 
-  UserLoginModel({this.loginUser});
+class UserLoginModel extends ErrorModel {
+  LoginUser? loginUser;
+  ErrorModel? errorModel;
+
+  UserLoginModel({this.loginUser, this.errorModel});
 
   UserLoginModel.fromJson(Map<String, dynamic> json) {
+    print("Error Model: ${json}");
+    if (json['errors'] != null) {
+      errorModel = ErrorModel.fromJson(json);
+      print("Error Model: ${errorModel!.errors![0].message}");
+    }
     loginUser = json['loginUser'] != null
         ? LoginUser.fromJson(json['loginUser'])
         : null;
