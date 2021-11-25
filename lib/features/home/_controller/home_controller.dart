@@ -16,6 +16,10 @@ class HomeController extends GetxController {
 
   Rx<PropertyRentModel> propertyRentModel = PropertyRentModel().obs;
 
+  RxBool? descriptionExtended = false.obs;
+
+  RxBool? amenitiesExtended = false.obs;
+
   @override
   void onInit() {
     super.onInit();
@@ -30,13 +34,12 @@ class HomeController extends GetxController {
       } on Exception catch (e) {
         Right(DataNotFound());
       }
-      /*printInfo(info:" Error Data :: "  + categoryModel.value.categories!.edges![0].node!.name.toString());*/
     }, (r) => printInfo(info: r.toString()));
   }
 
   fetchRentPropertiesData(var city) async {
     Either<QueryResult, Failure> _response =
-    await _homeRepository.propertyForRent(
+        await _homeRepository.propertyForRent(
       city: "$city",
     );
     _response.fold((l) {

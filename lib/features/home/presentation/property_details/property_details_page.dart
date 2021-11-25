@@ -6,8 +6,10 @@ import 'package:ketemaa/core/utilities/app_colors/app_colors.dart';
 import 'package:ketemaa/core/utilities/app_dimension/app_dimension.dart';
 import 'package:ketemaa/core/utilities/app_dimension/app_sizes.dart';
 import 'package:ketemaa/core/utilities/app_spaces/app_spaces.dart';
+import 'package:ketemaa/features/home/presentation/widgets/property_details/amenities_details.dart';
 import 'package:ketemaa/features/home/presentation/widgets/property_details/details_divider.dart';
 import 'package:ketemaa/features/home/presentation/widgets/property_details/location.dart';
+import 'package:ketemaa/features/home/presentation/widgets/property_details/property_info.dart';
 import 'package:ketemaa/features/home/presentation/widgets/property_details/top_description.dart';
 
 class PropertyDetailsPage extends StatelessWidget {
@@ -80,7 +82,7 @@ class PropertyDetailsPage extends StatelessWidget {
             flexibleSpace: FlexibleSpaceBar(
               centerTitle: true,
               collapseMode: CollapseMode.parallax,
-              title: Text('Name'),
+              title: const Text('Name'),
               background: Container(
                 height: AppSizes.height3,
                 decoration: BoxDecoration(
@@ -94,22 +96,22 @@ class PropertyDetailsPage extends StatelessWidget {
             ),
           ),
           SliverFillRemaining(
-            fillOverscroll: true,
             hasScrollBody: true,
-            //child: _buildContent(context),
             child: ListView(
-              physics: const NeverScrollableScrollPhysics(),
               children: const [
                 PropertyTopDescription(),
                 PropertyDetailsDivider(),
                 PropertyLocationDetails(),
+                PropertyDetailsDivider(),
+                PropertyInfo(),
+                PropertyDetailsDivider(),
+                AmenitiesInfo(),
                 PropertyDetailsDivider(),
               ],
             ),
           ),
         ],
       ),
-      //bottomNavigationBar: addToCartBottom(),
     );
   }
 }

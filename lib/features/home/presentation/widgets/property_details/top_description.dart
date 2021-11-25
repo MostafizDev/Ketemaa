@@ -26,7 +26,7 @@ class PropertyTopDescription extends StatelessWidget {
           ),
           AppSpaces.spaces_height_10,
           Text(
-            'Title will be here like a short description',
+            'Title will be here like a short description'.toUpperCase(),
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
             style: Get.textTheme.headline6!.copyWith(

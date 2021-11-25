@@ -66,4 +66,11 @@ class AppLanguageString {
   static String BUILDING = 'Building';
   static String NEIGHBOUR = 'Neighbourhood';
 
+
+  static String LOCATION = 'Location';
+  static String PROPERTY_INFO = 'Property_Info';
+  static String SHOWMORE = 'Show_More';
+  static String SHOWLESS = 'Show_Less';
+  static String AMENITIES = 'Amenities';
+
 }

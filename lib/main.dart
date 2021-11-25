@@ -11,10 +11,16 @@ import 'core/graphQLConfig/graphql_config.dart';
 import 'core/language/language.dart';
 import 'core/utilities/app_theme/app_theme.dart';
 
-
-
-
 Future<void> main() async {
+  runApp(
+    GraphQLProvider(
+      client: AppGraphQLConfiguration.client,
+      child: const CacheProvider(child: MyApp()),
+    ),
+  );
+}
+
+/*Future<void> main() async {
   await runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
     await Firebase.initializeApp(
@@ -35,9 +41,7 @@ Future<void> main() async {
   }, (error, stackTrace) {
     FirebaseCrashlytics.instance.recordError(error, stackTrace);
   });
-}
-
-
+}*/
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -50,6 +54,7 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.themeData(),
       getPages: AppRoutes.AppRoutesList(),
       initialRoute: AppRoutes.MAIN_AUTH,
+      //initialRoute: AppRoutes.PROPERTY_DETAILS_PAGE,
       translations: Language(),
       locale: const Locale('en', 'US'),
     );

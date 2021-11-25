@@ -65,6 +65,10 @@ class Language extends Translations {
           AppLanguageString.MAINTAIN_FEE: 'Maintenance Fee',
           AppLanguageString.BUILDING: 'Building',
           AppLanguageString.NEIGHBOUR: 'Neighbourhood',
+          AppLanguageString.LOCATION: 'Location',
+          AppLanguageString.PROPERTY_INFO: 'Property Info',
+          AppLanguageString.SHOWMORE: 'Show More Details',
+          AppLanguageString.SHOWLESS: 'Show Less Details',
         },
         'bd_BD': {},
       };

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ketemaa/core/language/language_string.dart';
 import 'package:ketemaa/core/utilities/app_colors/app_colors.dart';
 import 'package:ketemaa/core/utilities/app_dimension/app_dimension.dart';
 import 'package:ketemaa/core/utilities/app_spaces/app_spaces.dart';
@@ -23,7 +24,7 @@ class _PropertyLocationDetailsState extends State<PropertyLocationDetails> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Location',
+            AppLanguageString.LOCATION.tr,
             style: Get.textTheme.headline2!.copyWith(
               color: AppColors.black,
               fontWeight: FontWeight.bold,

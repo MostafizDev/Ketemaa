@@ -88,7 +88,7 @@ class HomeRemoteRepository extends HomeRepository {
 
 
         _propertyRentResponse = Left(_propertyForRentResult);
-        printInfo(info:" $_TAG :  ${propertyForRentResponse.toString()}");
+        //printInfo(info:" $_TAG :  ${propertyForRentResponse.toString()}");
       } else {
         _propertyRentResponse = Right(DataNotFound());
       }

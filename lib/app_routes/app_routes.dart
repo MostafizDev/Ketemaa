@@ -5,7 +5,7 @@ import 'package:ketemaa/features/auth/presentation/sign_in/sign_in_email.dart';
 import 'package:ketemaa/features/auth/presentation/sign_up/sign_up.dart';
 import 'package:ketemaa/features/controller_page/presentattion/controller_page.dart';
 import 'package:ketemaa/features/home/presentation/home.dart';
-import 'package:ketemaa/features/home/presentation/property_details_page.dart';
+import 'package:ketemaa/features/home/presentation/property_details/property_details_page.dart';
 import 'package:ketemaa/features/place_a_add/presentation/category_page.dart';
 import 'package:ketemaa/features/place_a_add/presentation/categorywise/property_for_rent/agent_page.dart';
 import 'package:ketemaa/features/place_a_add/presentation/categorywise/property_for_rent/initial_page.dart';

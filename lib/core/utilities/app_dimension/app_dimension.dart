@@ -59,4 +59,8 @@ class AppDimension {
   static double up_down_icon_size = 15.0;
 
   static double productpageiconsize = 35.0;
+
+  static double collupsContainerSize = 45.0;
+  static double expandedContainerSize = 90.0;
+
 }
