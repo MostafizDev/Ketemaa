@@ -6,10 +6,13 @@ import 'package:ketemaa/core/utilities/app_colors/app_colors.dart';
 import 'package:ketemaa/core/utilities/app_dimension/app_dimension.dart';
 import 'package:ketemaa/core/utilities/app_dimension/app_sizes.dart';
 import 'package:ketemaa/core/utilities/app_spaces/app_spaces.dart';
+import 'package:ketemaa/features/home/presentation/widgets/property_details/agency_profile.dart';
 import 'package:ketemaa/features/home/presentation/widgets/property_details/amenities_details.dart';
+import 'package:ketemaa/features/home/presentation/widgets/property_details/description.dart';
 import 'package:ketemaa/features/home/presentation/widgets/property_details/details_divider.dart';
 import 'package:ketemaa/features/home/presentation/widgets/property_details/location.dart';
 import 'package:ketemaa/features/home/presentation/widgets/property_details/property_info.dart';
+import 'package:ketemaa/features/home/presentation/widgets/property_details/schedule_viewing.dart';
 import 'package:ketemaa/features/home/presentation/widgets/property_details/top_description.dart';
 
 class PropertyDetailsPage extends StatelessWidget {
@@ -99,13 +102,19 @@ class PropertyDetailsPage extends StatelessWidget {
             hasScrollBody: true,
             child: ListView(
               children: const [
-                PropertyTopDescription(),
+               /* PropertyTopDescription(),
                 PropertyDetailsDivider(),
                 PropertyLocationDetails(),
-                PropertyDetailsDivider(),
+                PropertyDetailsDivider(),*/
                 PropertyInfo(),
                 PropertyDetailsDivider(),
                 AmenitiesInfo(),
+                PropertyDetailsDivider(),
+                PropertyDescription(),
+                PropertyDetailsDivider(),
+                ScheduleViewing(),
+                PropertyDetailsDivider(),
+                AgencyProfile(),
                 PropertyDetailsDivider(),
               ],
             ),

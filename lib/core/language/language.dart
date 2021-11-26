@@ -69,6 +69,10 @@ class Language extends Translations {
           AppLanguageString.PROPERTY_INFO: 'Property Info',
           AppLanguageString.SHOWMORE: 'Show More Details',
           AppLanguageString.SHOWLESS: 'Show Less Details',
+          AppLanguageString.AGENCY: 'Agency Profile',
+          AppLanguageString.PROPERTYDESCRIPTION: 'Description',
+          AppLanguageString.SCHEDULEVIEW: 'Schedule Viewing',
+          AppLanguageString.SCHEDULEVIEWDES: 'When are you free? Suggest a viewing time.',
         },
         'bd_BD': {},
       };

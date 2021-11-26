@@ -72,5 +72,9 @@ class AppLanguageString {
   static String SHOWMORE = 'Show_More';
   static String SHOWLESS = 'Show_Less';
   static String AMENITIES = 'Amenities';
+  static String AGENCY = 'Agency_Profile';
+  static String PROPERTYDESCRIPTION = 'Property_Description';
+  static String SCHEDULEVIEW = 'Schedule_Viewing';
+  static String SCHEDULEVIEWDES = 'Schedule_Viewing_Description';
 
 }

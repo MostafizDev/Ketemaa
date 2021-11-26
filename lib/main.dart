@@ -53,8 +53,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: AppTheme.themeData(),
       getPages: AppRoutes.AppRoutesList(),
-      initialRoute: AppRoutes.MAIN_AUTH,
-      //initialRoute: AppRoutes.PROPERTY_DETAILS_PAGE,
+      //initialRoute: AppRoutes.MAIN_AUTH,
+      initialRoute: AppRoutes.PROPERTY_DETAILS_PAGE,
       translations: Language(),
       locale: const Locale('en', 'US'),
     );
