@@ -17,7 +17,7 @@ class PlaceAddController {
 
   final PlaceAddRepository _placeAddRepository = PlaceAddRemoteRepository();
 
-  //Property Rent Form Text Controller
+  //Property Rent Form Text _controller
   TextEditingController propertyRentTitleFieldController =
       TextEditingController();
   TextEditingController propertyRent360FieldController =

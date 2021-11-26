@@ -7,7 +7,7 @@ abstract class AuthRepository {
   Future<Either<QueryResult, Failure>> signIn(
       {@required String email, @required String password});
 
-  Future<Either<QueryResult, Failure>> signUp();
+  Future<Either<QueryResult, Failure>> signUp(@required String name , @required String email , @required String password);
 
   Future<Either<QueryResult, Failure>> passwordUpdate(String password);
 

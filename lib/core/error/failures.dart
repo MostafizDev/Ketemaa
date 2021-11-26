@@ -34,7 +34,7 @@ class DataNotFound extends Failure {
 class GQException extends Failure {
   OperationException? operationException;
 
-  GQException(operationException);
+  GQException(this.operationException);
 
   OperationException? get errorMessage => operationException;
 

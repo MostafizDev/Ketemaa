@@ -94,7 +94,7 @@ class SignInWithEmail extends StatelessWidget {
             },
             child: Text(
               AppLanguageString.lOG_IN.tr.toUpperCase(),
-              style: Get.textTheme.button,
+              style: Get.textTheme.button!.copyWith(color: Colors.white),
             ),
           ),
         )

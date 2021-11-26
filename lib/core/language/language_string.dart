@@ -77,4 +77,6 @@ class AppLanguageString {
   static String SCHEDULEVIEW = 'Schedule_Viewing';
   static String SCHEDULEVIEWDES = 'Schedule_Viewing_Description';
 
+  static var NAME_IS_REQUIRED = "Name is required.";
+
 }

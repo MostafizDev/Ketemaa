@@ -1,11 +1,8 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:http/http.dart' as http;
 import 'package:ketemaa/core/error/failures.dart';
 import 'package:ketemaa/core/graphQLConfig/graphql_config.dart';
-import 'package:ketemaa/core/utilities/common_widgets/app_snack_bar.dart';
 import 'package:ketemaa/features/auth/data/Repository/authentication_repository.dart';
 
 class AuthenticationRemoteRepository extends AuthRepository {
@@ -61,10 +58,10 @@ class AuthenticationRemoteRepository extends AuthRepository {
         printInfo(info: '62 ' + _signInResult.exception.toString());
         _signInResponse = Right(GQException(_signInResult.exception));
       }
-
+/*
       printInfo(
           info:
-              "$_TAG gq response :: ${_signInResult.exception!.graphqlErrors[0].message} ");
+              "$_TAG gq response :: ${_signInResult.exception!.graphqlErrors[0].message} ");*/
     } on Exception catch (e) {
       _signInResponse = Right(ServerFailure());
       printInfo(info: 'Catch');
@@ -73,8 +70,40 @@ class AuthenticationRemoteRepository extends AuthRepository {
   }
 
   @override
-  Future<Either<QueryResult, Failure>> signUp() {
-    // TODO: implement signUp
-    throw UnimplementedError();
+  Future<Either<QueryResult, Failure>> signUp(
+      String name, String email, String password) async {
+    Either<QueryResult, Failure> _response;
+    var userLogin = '''
+    mutation{
+  registerUser(username: "${name}", email: "${email}", password: "${password}"){
+    user {
+      id
+    }
+  }
+}
+   ''';
+
+    try {
+      QueryResult _query =
+          await AppGraphQLConfiguration.clientToQuery().mutate(MutationOptions(
+        document: gql(userLogin),
+      ));
+
+      if (_query.exception == null) {
+        printInfo(info: '58' + _query.exception.toString());
+        _response = Left(_query);
+      } else {
+        printInfo(info: '62 ' + _query.exception.toString());
+        _response = Right(GQException(_query.exception));
+      }
+/*
+      printInfo(
+          info:
+              "$_TAG gq response :: ${_signInResult.exception!.graphqlErrors[0].message} ");*/
+    } on Exception catch (e) {
+      _response = Right(ServerFailure());
+      printInfo(info: 'Catch');
+    }
+    return _response;
   }
 }

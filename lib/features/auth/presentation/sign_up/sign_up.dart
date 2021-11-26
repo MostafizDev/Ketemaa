@@ -7,6 +7,7 @@ import 'package:ketemaa/core/utilities/app_dimension/app_dimension.dart';
 import 'package:ketemaa/core/utilities/app_spaces/app_spaces.dart';
 import 'package:ketemaa/core/utilities/common_widgets/password_input_field.dart';
 import 'package:ketemaa/core/utilities/common_widgets/text_input_field.dart';
+import 'package:ketemaa/features/auth/presentation/sign_up/_controller/sign_up_controller.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({Key? key}) : super(key: key);
@@ -16,10 +17,6 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
-  TextEditingController nameController = TextEditingController();
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +40,9 @@ class _SignUpState extends State<SignUp> {
             children: [
               AppSpaces.spaces_height_100,
               Text(
-                AppLanguageString.SIGN_UP_TO.tr + ' ' + AppLanguageString.APPNAME.tr,
+                AppLanguageString.SIGN_UP_TO.tr +
+                    ' ' +
+                    AppLanguageString.APPNAME.tr,
                 style: Get.textTheme.headline4!.copyWith(color: Colors.black),
               ),
               AppSpaces.spaces_height_30,
@@ -51,21 +50,21 @@ class _SignUpState extends State<SignUp> {
                 labelText: AppLanguageString.NAME.tr,
                 height: .09,
                 textType: TextInputType.text,
-                controller: nameController,
+                controller: SignUpController.to.nameController,
               ),
               AppSpaces.spaces_height_5,
               TextInputField(
                 labelText: AppLanguageString.EMAIL.tr,
                 height: .09,
                 textType: TextInputType.emailAddress,
-                controller: emailController,
+                controller: SignUpController.to.emailController,
               ),
               AppSpaces.spaces_height_5,
               PasswordInputField(
                   labelText: AppLanguageString.PASSWORD.tr,
                   height: .09,
                   textType: TextInputType.text,
-                  controller: passwordController),
+                  controller: SignUpController.to.passwordController),
               AppSpaces.spaces_height_5,
               Container(
                 margin: EdgeInsets.all(AppDimension.b1),
@@ -78,7 +77,9 @@ class _SignUpState extends State<SignUp> {
                       Radius.circular(10.0)), // set rounded corner radius
                 ),
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    SignUpController.to.signUp();
+                  },
                   child: Text(
                     AppLanguageString.SIGN_UP.tr.toUpperCase(),
                   ),

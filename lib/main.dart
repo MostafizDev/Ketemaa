@@ -25,12 +25,12 @@ Future<void> main() async {
     WidgetsFlutterBinding.ensureInitialized();
     await Firebase.initializeApp(
         options: const FirebaseOptions(
-          apiKey: 'AIzaSyCQneEWwRwpA1srjWETD8VatowLTg9uYMY',
-          appId: '1:262038982259:android:762524d18b11e2af626406',
-          messagingSenderId: '262038982259',
-          authDomain: 'react-native-firebase-testing.firebaseapp.com',
-          projectId: 'ketemaa-6a075',
-        ));
+      apiKey: 'AIzaSyCQneEWwRwpA1srjWETD8VatowLTg9uYMY',
+      appId: '1:262038982259:android:762524d18b11e2af626406',
+      messagingSenderId: '262038982259',
+      authDomain: 'react-native-firebase-testing.firebaseapp.com',
+      projectId: 'ketemaa-6a075',
+    ));
     FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
     runApp(
       GraphQLProvider(
@@ -53,8 +53,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: AppTheme.themeData(),
       getPages: AppRoutes.AppRoutesList(),
-      //initialRoute: AppRoutes.MAIN_AUTH,
-      initialRoute: AppRoutes.PROPERTY_DETAILS_PAGE,
+      initialRoute: AppRoutes.MAIN_AUTH,
+   //   initialRoute: AppRoutes.PROPERTY_DETAILS_PAGE,
       translations: Language(),
       locale: const Locale('en', 'US'),
     );

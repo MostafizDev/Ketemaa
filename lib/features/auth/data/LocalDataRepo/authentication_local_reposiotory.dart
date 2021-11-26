@@ -30,9 +30,11 @@ class AuthenticationLocalRepository extends AuthRepository{
   }
 
   @override
-  Future<Either<QueryResult, Failure>> signUp() {
+  Future<Either<QueryResult, Failure>> signUp(String name, String email, String password) {
     // TODO: implement signUp
     throw UnimplementedError();
   }
+
+
 
 }

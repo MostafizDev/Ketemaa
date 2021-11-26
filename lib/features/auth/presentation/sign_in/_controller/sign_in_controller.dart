@@ -43,6 +43,7 @@ class SigninController extends GetxController {
       loading.value = false;
       printInfo(info: " Success Data :: " + l.data.toString());
       try {
+        print("The exception ............  ${l.exception}");
         userLogin.value = UserLoginModel.fromJson(l.data!);
         l.data == null
             ? ''
@@ -51,8 +52,9 @@ class SigninController extends GetxController {
           userLogin.value.loginUser!.success == true
               ? Get.toNamed(AppRoutes.CONTROLLER_PAGE)
               : printInfo(
-                  info:
-                      'False :${SigninController.to.userLogin.value.loginUser!.success}');
+              info:
+              'False :${SigninController.to.userLogin.value.loginUser!
+                  .success}');
 
           SharedPreferenceController.to
               .storeToken(userLogin.value.loginUser!.access);
@@ -68,12 +70,15 @@ class SigninController extends GetxController {
       }
       //printInfo(info: " Error Data :: " + l.data.toString());
     }, (r) {
-      AppSnackBar.showErrorMessage(
+/*      AppSnackBar.showErrorMessage(
           title: AppLanguageString.VALIDATION_FAILED.tr,
-          body: userLogin.value.errorModel!.errors![0].message);
-      printInfo(
-          info: "Error: ${userLogin.value.errorModel!.errors![0].message}");
-
+          body: userLogin.value.errorModel!.errors![0].message);*/
+      if (r is GQException) {
+        printInfo(info: "Right error : ${r.errorMessage}");
+        AppSnackBar.showErrorMessage(
+            title: AppLanguageString.VALIDATION_FAILED.tr,
+            body: r.operationException!.graphqlErrors[0].message);
+      }
       loading.value = false;
     });
   }
