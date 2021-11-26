@@ -102,10 +102,10 @@ class PropertyDetailsPage extends StatelessWidget {
             hasScrollBody: true,
             child: ListView(
               children: const [
-               /* PropertyTopDescription(),
+                PropertyTopDescription(),
                 PropertyDetailsDivider(),
                 PropertyLocationDetails(),
-                PropertyDetailsDivider(),*/
+                PropertyDetailsDivider(),
                 PropertyInfo(),
                 PropertyDetailsDivider(),
                 AmenitiesInfo(),
