@@ -28,7 +28,9 @@ class PropertyDetailsPage extends StatelessWidget {
           SliverAppBar(
             backgroundColor: AppColors.primaryColor,
             leading: InkWell(
-              onTap: () {},
+              onTap: () {
+                Get.back();
+              },
               child: Container(
                 height: AppDimension.productpageiconsize,
                 width: AppDimension.productpageiconsize,
@@ -101,6 +103,7 @@ class PropertyDetailsPage extends StatelessWidget {
           SliverFillRemaining(
             hasScrollBody: true,
             child: ListView(
+              physics: const NeverScrollableScrollPhysics(),
               children: const [
                 PropertyTopDescription(),
                 PropertyDetailsDivider(),

@@ -17,6 +17,8 @@ class PlaceAddController {
 
   final PlaceAddRepository _placeAddRepository = PlaceAddRemoteRepository();
 
+  List<String> bedrooms = ['1', '2', '3'];
+
   //Property Rent Form Text _controller
   TextEditingController propertyRentTitleFieldController =
       TextEditingController();
@@ -33,7 +35,7 @@ class PlaceAddController {
   TextEditingController propertyRentSizeFieldController =
       TextEditingController();
   DropdownEditingController<String> propertyRentBedroomFieldController =
-  DropdownEditingController();
+      DropdownEditingController();
   TextEditingController propertyRentRefIDFieldController =
       TextEditingController();
   TextEditingController propertyRentRERALandlordNameFieldController =

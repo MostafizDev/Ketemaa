@@ -6,6 +6,7 @@ import 'package:ketemaa/core/utilities/app_assets/app_assets.dart';
 import 'package:ketemaa/core/utilities/app_colors/app_colors.dart';
 import 'package:ketemaa/core/utilities/app_dimension/app_dimension.dart';
 import 'package:ketemaa/core/utilities/app_spaces/app_spaces.dart';
+import 'package:ketemaa/core/utilities/common_widgets/dropdown_field.dart';
 import 'package:ketemaa/features/place_a_add/_controller/place_a_add_controller.dart';
 import 'package:ketemaa/features/place_a_add/presentation/categorywise/property_for_rent/widgets/form_text_field.dart';
 
@@ -115,24 +116,10 @@ class PropertyListingForm extends StatelessWidget {
           AppSpaces.spaces_height_15,
 
           ///Bedrooms
-          TextDropdownFormField(
-            controller: PlaceAddController.to.propertyRentBedroomFieldController,
-            options: const ['1', '2', '3'],
-            decoration: InputDecoration(
-                contentPadding:  EdgeInsets.all( 16.0),
-
-                border: const OutlineInputBorder(),
-                suffixIcon: Padding(
-                  padding: const EdgeInsets.only(right: 8.0),
-                  child: Image.asset(AppAsset.up_down),
-                ),
-                suffixIconConstraints: BoxConstraints(
-                  maxHeight: AppDimension.up_down_icon_size,
-                  maxWidth: AppDimension.up_down_icon_size,
-                ),
-                hintText: AppLanguageString.BEDROOM.tr,
-                focusColor: AppColors.primaryColor),
-            dropdownHeight: 200,
+          ProptertyDropDownField(
+            textType: TextInputType.text,
+            labelText: 'Bedrooms',
+            dropDownList: PlaceAddController.to.bedrooms,
           ),
           AppSpaces.spaces_height_15,
 

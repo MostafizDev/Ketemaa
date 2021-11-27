@@ -11,6 +11,7 @@ import 'package:ketemaa/features/_global/sharedpreference/sp_controller.dart';
 import 'package:ketemaa/features/home/_controller/home_controller.dart';
 import 'package:ketemaa/core/utilities/common_widgets/category_card.dart';
 import 'package:ketemaa/features/home/presentation/widgets/porperty_for_rent_listview.dart';
+import 'package:ketemaa/features/place_a_add/_controller/place_a_add_controller.dart';
 
 class Home extends StatelessWidget {
   var cityId;
@@ -20,6 +21,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(HomeController());
+    Get.put(PlaceAddController());
     HomeController.to.fetchHomeCategoryData();
 
     SharedPreferenceController.to.getToken();

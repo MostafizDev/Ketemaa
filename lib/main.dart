@@ -1,7 +1,7 @@
 import 'dart:async';
-
+/*
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';*/
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
@@ -54,7 +54,7 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.themeData(),
       getPages: AppRoutes.AppRoutesList(),
       initialRoute: AppRoutes.MAIN_AUTH,
-   //   initialRoute: AppRoutes.PROPERTY_DETAILS_PAGE,
+      //initialRoute: AppRoutes.PROPERTY_DETAILS_PAGE,
       translations: Language(),
       locale: const Locale('en', 'US'),
     );
