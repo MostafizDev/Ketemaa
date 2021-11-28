@@ -1,15 +1,32 @@
+import 'dart:io';
+
 import 'package:dartz/dartz.dart';
 import 'package:dropdown_plus/dropdown_plus.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:ketemaa/core/error/failures.dart';
 import 'package:ketemaa/features/place_a_add/data/models/city_model.dart';
 import 'package:ketemaa/features/place_a_add/data/remotedatarepo/place_add_remote_repository.dart';
 import 'package:ketemaa/features/place_a_add/data/repository/place_add_repository.dart';
 
-class PlaceAddController {
+class PlaceAddController extends GetxController {
   static PlaceAddController to = Get.find();
+
+  var selectedImagePath = ''.obs;
+  var selectedImageSize = ''.obs;
+
+  void getImage(ImageSource imageSource) async {
+    final pickedFile = await ImagePicker().getImage(source: imageSource);
+
+    if (pickedFile != null) {
+      selectedImagePath.value = pickedFile.path;
+    } else {
+      Get.snackbar('Error', 'No Image');
+    }
+  }
 
   Rx<int> currentPage = 0.obs;
 
@@ -18,6 +35,11 @@ class PlaceAddController {
   final PlaceAddRepository _placeAddRepository = PlaceAddRemoteRepository();
 
   List<String> bedrooms = ['1', '2', '3'];
+  List<String> bathrooms = ['1', '2', '3'];
+  List<String> furnished = ['Yes', 'No'];
+  List<String> rentPaid = ['Yes', 'No'];
+  List<String> propertyStatus = ['New', 'Used'];
+  List<String> occupaacyStatus = ['OS-1', 'OS-2'];
 
   //Property Rent Form Text _controller
   TextEditingController propertyRentTitleFieldController =
@@ -34,8 +56,10 @@ class PlaceAddController {
       TextEditingController();
   TextEditingController propertyRentSizeFieldController =
       TextEditingController();
-  DropdownEditingController<String> propertyRentBedroomFieldController =
-      DropdownEditingController();
+  TextEditingController propertyRentBedroomFieldController =
+      TextEditingController();
+  TextEditingController propertyRentBathroomFieldController =
+      TextEditingController();
   TextEditingController propertyRentRefIDFieldController =
       TextEditingController();
   TextEditingController propertyRentRERALandlordNameFieldController =
@@ -53,6 +77,14 @@ class PlaceAddController {
   TextEditingController propertyRentBuildingFieldController =
       TextEditingController();
   TextEditingController propertyRentNeighbourFieldController =
+      TextEditingController();
+  TextEditingController propertyRentFurnishedFieldController =
+      TextEditingController();
+  TextEditingController propertyRentRentPaidFieldController =
+      TextEditingController();
+  TextEditingController propertyRentPropertyStatusFieldController =
+      TextEditingController();
+  TextEditingController propertyRentOccupaacyStatusFieldController =
       TextEditingController();
 
   Rx onChangedValue = 0.obs;

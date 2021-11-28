@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:ketemaa/features/auth/presentation/auth_initial_page/auth_initial_page.dart';
 import 'package:ketemaa/features/auth/presentation/sign_in/sign_in_email.dart';

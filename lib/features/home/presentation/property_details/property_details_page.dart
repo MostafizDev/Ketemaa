@@ -5,7 +5,6 @@ import 'package:ketemaa/core/utilities/app_assets/app_assets.dart';
 import 'package:ketemaa/core/utilities/app_colors/app_colors.dart';
 import 'package:ketemaa/core/utilities/app_dimension/app_dimension.dart';
 import 'package:ketemaa/core/utilities/app_dimension/app_sizes.dart';
-import 'package:ketemaa/core/utilities/app_spaces/app_spaces.dart';
 import 'package:ketemaa/features/home/presentation/widgets/property_details/agency_profile.dart';
 import 'package:ketemaa/features/home/presentation/widgets/property_details/amenities_details.dart';
 import 'package:ketemaa/features/home/presentation/widgets/property_details/description.dart';
@@ -21,9 +20,8 @@ class PropertyDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //extendBodyBehindAppBar: true,
-      //appBar: CustomAppBar(),
       body: CustomScrollView(
+        shrinkWrap: true,
         slivers: <Widget>[
           SliverAppBar(
             backgroundColor: AppColors.primaryColor,
@@ -101,9 +99,11 @@ class PropertyDetailsPage extends StatelessWidget {
             ),
           ),
           SliverFillRemaining(
+            fillOverscroll: false,
             hasScrollBody: true,
             child: ListView(
-              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              physics: AlwaysScrollableScrollPhysics(),
               children: const [
                 PropertyTopDescription(),
                 PropertyDetailsDivider(),

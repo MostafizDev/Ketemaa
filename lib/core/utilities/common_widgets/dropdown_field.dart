@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_utils/src/extensions/dynamic_extensions.dart';
+import 'package:get/get_utils/src/extensions/internacionalization.dart';
+import 'package:ketemaa/core/language/language_string.dart';
 import 'package:ketemaa/core/utilities/app_colors/app_colors.dart';
 
 class ProptertyDropDownField extends StatefulWidget {
@@ -7,12 +9,14 @@ class ProptertyDropDownField extends StatefulWidget {
   TextInputType textType;
   String? controll;
   List<String>? dropDownList;
+  bool? optionalText;
 
   ProptertyDropDownField({
     required this.labelText,
     required this.textType,
     this.controll,
     this.dropDownList,
+    this.optionalText,
   });
 
   @override
@@ -20,8 +24,6 @@ class ProptertyDropDownField extends StatefulWidget {
 }
 
 class _ProptertyDropDownFieldState extends State<ProptertyDropDownField> {
-  final _formKey = GlobalKey<FormState>();
-
   @override
   Widget build(BuildContext context) {
     return DropdownButtonHideUnderline(
@@ -32,12 +34,9 @@ class _ProptertyDropDownFieldState extends State<ProptertyDropDownField> {
           width: 15,
         ),
         decoration: InputDecoration(
-          /*suffixIcon: Image.asset(
-            'assets/media/icon/up_down.png',
-            height: 5,
-            width: 5,
-          ),*/
-          border: OutlineInputBorder(
+          suffixText:
+              widget.optionalText == true ? AppLanguageString.OPTIONAL.tr : '',
+          border: const OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(10)),
             borderSide: BorderSide(width: 1),
           ),

@@ -1,4 +1,3 @@
-import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ketemaa/core/language/language_string.dart';
@@ -24,14 +23,11 @@ class PropertyTextInputField extends StatefulWidget {
 }
 
 class _PropertyTextInputFieldState extends State<PropertyTextInputField> {
-  final _formKey = GlobalKey<FormState>();
-
   @override
   Widget build(BuildContext context) {
     Get.put(PlaceAddController());
     //printInfo(info: widget.optionalText.toString());
-    return TextField(
-      key: _formKey,
+    return TextFormField(
       controller: widget.controller,
       decoration: InputDecoration(
         border: OutlineInputBorder(
@@ -46,7 +42,7 @@ class _PropertyTextInputFieldState extends State<PropertyTextInputField> {
           borderSide: BorderSide(color: AppColors.blueGrey),
         ),
         hintText: widget.hintText,
-        counterStyle: TextStyle(
+        counterStyle: const TextStyle(
           overflow: TextOverflow.ellipsis,
         ),
         suffixText:

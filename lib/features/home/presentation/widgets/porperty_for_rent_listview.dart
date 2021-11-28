@@ -4,6 +4,7 @@ import 'package:ketemaa/app_routes/app_routes.dart';
 import 'package:ketemaa/core/language/language_string.dart';
 import 'package:ketemaa/features/home/_controller/home_controller.dart';
 import 'package:ketemaa/features/home/data/models/property_rent_model.dart';
+import 'package:ketemaa/features/home/presentation/property_details/property_details_page.dart';
 import 'package:ketemaa/features/home/presentation/widgets/popular_in_row.dart';
 import 'package:ketemaa/features/home/presentation/widgets/residential_for_rent_card.dart';
 
@@ -67,8 +68,11 @@ class PropertyListView extends StatelessWidget {
                                   .toString(),
                             ),
                             InkWell(
-                              onTap: (){
+                              onTap: () {
                                 Get.toNamed(AppRoutes.PROPERTY_DETAILS_PAGE);
+                                /*Get.to(
+                                  () => PropertyDetailsPage(),
+                                );*/
                               },
                               child: ResidentialForRentCard(
                                 categorykeyword: API_edge[index]
