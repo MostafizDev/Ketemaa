@@ -19,8 +19,8 @@ class ScheduleViewing extends StatelessWidget {
         left: AppDimension.padding_16,
         right: AppDimension.padding_16,
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: ListView(
+        shrinkWrap: true,
         children: [
           Text(
             AppLanguageString.SCHEDULEVIEW.tr,

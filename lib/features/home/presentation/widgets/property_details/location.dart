@@ -9,7 +9,8 @@ class PropertyLocationDetails extends StatefulWidget {
   const PropertyLocationDetails({Key? key}) : super(key: key);
 
   @override
-  _PropertyLocationDetailsState createState() => _PropertyLocationDetailsState();
+  _PropertyLocationDetailsState createState() =>
+      _PropertyLocationDetailsState();
 }
 
 class _PropertyLocationDetailsState extends State<PropertyLocationDetails> {
@@ -20,8 +21,8 @@ class _PropertyLocationDetailsState extends State<PropertyLocationDetails> {
         left: AppDimension.padding_16,
         right: AppDimension.padding_16,
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: ListView(
+        shrinkWrap: true,
         children: [
           Text(
             AppLanguageString.LOCATION.tr,

@@ -49,7 +49,6 @@ class HomeController extends GetxController {
       } on Exception catch (e) {
         Right(DataNotFound());
       }
-      /*printInfo(info:" Error Data :: "  + categoryModel.value.categories!.edges![0].node!.name.toString());*/
     }, (r) => printInfo(info: r.toString()));
   }
 }

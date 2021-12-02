@@ -7,6 +7,7 @@ import 'package:ketemaa/features/controller_page/controller/controller_page_cont
 import 'package:ketemaa/features/home/presentation/home.dart';
 import 'package:ketemaa/features/place_a_add/_controller/place_a_add_controller.dart';
 import 'package:ketemaa/features/place_a_add/presentation/place_a_add.dart';
+import 'package:ketemaa/features/profile/presentation/profile.dart';
 
 class ControllerPage extends StatelessWidget {
   List<String> names = [
@@ -66,9 +67,7 @@ class ControllerPage extends StatelessWidget {
       );
     } else {
       return Container(
-        child: Center(
-          child: Text(names[index]),
-        ),
+        child: Profile(),
       );
     }
   }

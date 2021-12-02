@@ -15,7 +15,6 @@ class PropertyTopDescription extends StatelessWidget {
         right: AppDimension.padding_16,
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             'Price',

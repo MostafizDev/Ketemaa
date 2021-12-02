@@ -19,8 +19,8 @@ class AmenitiesInfo extends StatelessWidget {
         right: AppDimension.padding_16,
       ),
       child: Obx(() {
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        return ListView(
+          shrinkWrap: true,
           children: [
             Text(
               AppLanguageString.AMENITIES.tr,
